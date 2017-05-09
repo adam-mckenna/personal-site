@@ -34,7 +34,10 @@ const paths = {
 gulp.task('sass', () => {
     gulp.src(paths.src.sass)
         .pipe(plumber(plumberErrorHandler))
-        .pipe(sass())
+        .pipe(sass({
+            outputStyle: 'compressed',
+            includePaths: ['node_modules/susy/sass']
+        }))
         .pipe(shorthand())
         .pipe(base64())
         .pipe(cssnano())

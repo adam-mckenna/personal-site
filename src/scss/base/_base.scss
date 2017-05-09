@@ -1,0 +1,11 @@
+.header {
+    @include container(1024px);
+
+    .logo {
+        @include span(6 of 12);
+    }
+
+    .nav {
+        @include span(6 of 12);
+    }
+}
