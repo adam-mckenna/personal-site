@@ -13,6 +13,8 @@ const plumber = require('gulp-plumber')
 const notify = require('gulp-notify')
 const addsrc = require('gulp-add-src')
 const todo = require('gulp-todo')
+const browserSync = require('browser-sync').create()
+const livereload = require('gulp-livereload')
 
 const paths = {
     src: {
@@ -42,6 +44,7 @@ gulp.task('sass', () => {
         .pipe(base64())
         .pipe(cssnano())
         .pipe(gulp.dest(paths.build.css))
+        .pipe(livereload())
 })
 
 gulp.task('js', () => {
@@ -53,6 +56,7 @@ gulp.task('js', () => {
         .pipe(uglify())
         .pipe(concat('scripts.js'))
         .pipe(gulp.dest(paths.build.js))
+        .pipe(livereload())
 })
 
 gulp.task('bitmap', () => {
@@ -63,25 +67,35 @@ gulp.task('bitmap', () => {
             progressive: true
         }))
         .pipe(gulp.dest(paths.build.img))
+        .pipe(livereload())
 })
 
 gulp.task('vector', () => {
-    return gulp.src(paths.src.vector)
+    gulp.src(paths.src.vector)
         .pipe(svgmin())
         .pipe(gulp.dest(paths.build.img))
+        .pipe(livereload())
 })
 
 gulp.task('watch', () => {
+    browserSync.init({
+        proxy: "127.0.0.1:4000"
+    })
+    livereload.listen()
     gulp.watch(paths.src.sass, ['sass'])
     gulp.watch(paths.src.js, ['js'])
     gulp.watch(paths.src.bitmap, ['bitmap'])
-    gulp.watch(paths.src.vector, ['vector'])
+    gulp.watch(paths.src.vector, function () {
+        gulp.src(paths.src.vector)
+            .pipe(browserSync.stream())
+    })
 })
 
 gulp.task('todo', () => {
     gulp.src(paths.src)
         .pipe(todo())
         .pipe(gulp.dest('./'))
+        .pipe(livereload())
 })
 
 var plumberErrorHandler = {
