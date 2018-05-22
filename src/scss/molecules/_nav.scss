@@ -1,0 +1,69 @@
+/*
+ * Navigation Molecule
+ *
+ */ 
+ 
+.nav {
+    font-family: $muli;
+
+    &__link {
+        color: $white;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: color .3s ease;
+
+        &:hover, 
+        &:active,
+        &:focus {
+            color: $light-indigo;
+        }
+    }
+
+    @media screen and (max-width: $mobile-width) {
+        position: fixed;
+        padding: 1.5em;
+        top: 0;
+        right: 0;
+        width: 12em;
+        height: 100%;
+        transform: translateX(15em);
+        background-color: $dark-gray;
+        z-index: 1;
+        @include clearfix;
+        text-align: right;
+
+        &__item {
+            text-align: left;
+            padding: 1.25em 0;
+            border: { top: 0.03125em solid rgba($gray, .5) }
+
+            &:last-of-type {
+                border: { bottom: 0.03125em solid rgba($gray, .5); }
+            }
+        }
+
+        &__close-button { 
+            background-image: url('../img/icons/close.svg');
+            margin: { bottom: 1em; }
+            font-size: 1em;
+        }
+
+        &__open-button { 
+            background-image: url('../img/icons/menu.svg');
+            font-size: 1.25em;
+        }
+
+        &--open {
+            transform: translateX(0);
+        }
+    }
+
+    @media screen and (min-width: $mobile-width) {
+        &__item {
+            display: inline-block;
+            padding: { left: 1em };
+        }
+    }
+}
+
+     

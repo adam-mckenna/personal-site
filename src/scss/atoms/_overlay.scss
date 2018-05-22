@@ -1,0 +1,19 @@
+/* 
+ * Overlay
+ *
+ */ 
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: $dark-gray;
+    opacity: 0;
+    transition: opacity .3s ease;
+
+    &--active {
+        opacity: .3;
+    }
+}

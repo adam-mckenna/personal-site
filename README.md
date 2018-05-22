@@ -7,4 +7,4 @@ Personal website built to showcase various articles and provide a bit of context
 The technology, specifications methodologies and principles that the website is built with and upon include: 
 
 * Built upon the [Jekyll CMS](https://jekyllrb.com/)
-* Styles built with [Sass](https://sass-lang.com/) following the [Atomic Design Methodology](http://atomicdesign.bradfrost.com/chapter-2/)
+* Styles built with [Sass](https://sass-lang.com/) following the [Atomic Design](http://atomicdesign.bradfrost.com/chapter-2/) and [BEM](http://getbem.com/) methodologies 

@@ -13,9 +13,10 @@
  * Settings
  */
 
-@import 'settings/colours';
+@import 'settings/breakpoints',
+        'settings/colours';
 
-/*
+/* 
  * Tools
  */
 
@@ -32,10 +33,18 @@
  * Atoms
  */
 
-@import 'atoms/logo';
-
+@import 'atoms/buttons',
+        'atoms/logo',
+        'atoms/overlay';
+ 
 /*
  * Molecules
  */
 
-@import 'molecules/header';
+@import 'molecules/nav';
+
+/*
+ * Organisms
+ */
+
+@import 'organisms/header';       
