@@ -18,15 +18,15 @@ const livereload = require('gulp-livereload')
 
 const paths = {
     src: {
-        sass: "./src/scss/**/*.scss",
-        js: "./src/js/**/*.js",
-        bitmap: "./src/img/src/**/*.{png,jpg,gif}",
-        vector: "./src/img/src/**/*.svg"
+        sass: "src/scss/**/*.scss",
+        js: "src/js/**/*.js",
+        bitmap: "src/img/**/*.{png,jpg,gif}",
+        vector: "src/img/**/*.svg" 
     },
     build: {
-        css: "./build/css",
-        js: "./build/js",
-        img: "./build/img/"
+        css: "build/css",
+        js: "build/js",
+        img: "build/img"
     },
     babel: {
         es2015: "babel-preset-es2015",
@@ -53,7 +53,7 @@ gulp.task('js', () => {
         .pipe(babel({
             presets: [paths.babel.es2015]
         }))
-        .pipe(uglify())
+        .pipe(uglify()) 
         .pipe(concat('scripts.js'))
         .pipe(gulp.dest(paths.build.js))
         .pipe(livereload())
@@ -72,6 +72,7 @@ gulp.task('bitmap', () => {
 
 gulp.task('vector', () => {
     gulp.src(paths.src.vector)
+        .pipe(plumber(plumberErrorHandler))
         .pipe(svgmin())
         .pipe(gulp.dest(paths.build.img))
         .pipe(livereload())
@@ -85,10 +86,7 @@ gulp.task('watch', () => {
     gulp.watch(paths.src.sass, ['sass'])
     gulp.watch(paths.src.js, ['js'])
     gulp.watch(paths.src.bitmap, ['bitmap'])
-    gulp.watch(paths.src.vector, function () {
-        gulp.src(paths.src.vector)
-            .pipe(browserSync.stream())
-    })
+    gulp.watch(paths.src.vector, ['vector'])
 })
 
 gulp.task('todo', () => {
