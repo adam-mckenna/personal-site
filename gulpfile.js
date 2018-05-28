@@ -61,14 +61,10 @@ gulp.task('js', () => {
 
 gulp.task('bitmap', () => {
     gulp.src(paths.src.bitmap)
-        .pipe(plumber(plumberErrorHandler))
-        .pipe(imagemin({
-            optimizationLevel: 7,
-            progressive: true
-        }))
+        .pipe(imagemin())
         .pipe(gulp.dest(paths.build.img))
         .pipe(livereload())
-})
+}) 
 
 gulp.task('vector', () => {
     gulp.src(paths.src.vector)

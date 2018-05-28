@@ -1,0 +1,16 @@
+/*
+ * Headings atom
+ *
+ */
+
+.h1,
+.h2,
+.h3 {
+    color: $dark-gray;
+    font-family: $muli;
+    font-weight: 300;
+}
+
+.h1 {
+    @include type-setting(0);
+}

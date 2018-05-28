@@ -1,0 +1,9 @@
+/*
+ * Horizontal Lines <hr> atom
+ *
+ */
+
+.hr {
+    border: 0;
+    border: { top: 0.03125em solid $gray; }
+}
