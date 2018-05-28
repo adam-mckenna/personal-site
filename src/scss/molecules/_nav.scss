@@ -36,12 +36,16 @@
 
         &__item {
             text-align: left;
-            padding: 1.25em 0;
             border: { top: 0.03125em solid rgba($gray, .5) }
 
             &:last-of-type {
                 border: { bottom: 0.03125em solid rgba($gray, .5); }
             }
+        }
+
+        &__link {
+            padding: 1.25em 0;
+            display: block;
         }
 
         &__close-button { 
