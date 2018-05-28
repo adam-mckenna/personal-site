@@ -1,7 +1,43 @@
 {% include header.html %}
 
-    <main>
+    <main class="main home">
         
+        <h1 class="h1 main__heading">
+            Recent Articles
+        </h1>
+
+        <hr class="hr">
+
+        <div class="home__articles">
+
+            {% for post in site.posts limit: 5  %}
+
+                <article class="article-card">
+
+                    <a class="article-card__link" href="{{ post.url }}" aria-title="{{ post.title }}">
+                    
+                        <div class="article-card__featured" {% if post.featured-img %} style="background-image: url('{{ site.url }}/{{ post.featured-img }}');" {% endif %}></div>
+            
+                        <span class="article-card__date">
+                            {{ post.date | date: "%B %-dth %Y" }}
+                        </span>
+                        
+                        <h2 class="h2 article-card__title">
+                            {{ post.title }}
+                        </h2>
+
+                        <div class="article-card__excerpt">
+                            {{ post.excerpt | truncatewords:15 }}
+                        </div>
+
+                    </a>
+
+                </article>
+            
+            {% endfor %}
+
+        </div>
+    
     </main>
 
 {% include footer.html %}
