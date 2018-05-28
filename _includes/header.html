@@ -8,6 +8,8 @@
     
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,600" rel="stylesheet">
     <link rel="stylesheet" href="build/css/style.css">
+
+    <script type="text/javascript" src="build/js/scripts.js" async></script>
 </head>
 
 <body>
@@ -21,7 +23,7 @@
             </span>
         </h1>
 
-        <nav class="nav">
+        <nav class="nav" id="nav" aria-expanded="false">
             <button class="button nav__close-button" aria-label="Close navigation"></button>
 
             <ul>
@@ -43,7 +45,7 @@
             </ul>
         </nav>
 
-        <div class="overlay"></div>
+        <div class="overlay" id="nav-overlay"></div>
 
         <button class="button nav__open-button" aria-label="Open navigation"></button>
     </header>

@@ -20,6 +20,7 @@
     }
 
     @media screen and (max-width: $mobile-width) {
+        @include clearfix;
         position: fixed;
         padding: 1.5em;
         top: 0;
@@ -27,9 +28,10 @@
         width: 12em;
         height: 100%;
         transform: translateX(15em);
+        transition: .3s ease transform;
         background-color: $dark-gray;
+        will-change: transform;
         z-index: 1;
-        @include clearfix;
         text-align: right;
 
         &__item {
@@ -53,8 +55,9 @@
             font-size: 1.25em;
         }
 
-        &--open {
+        &--active {
             transform: translateX(0);
+            z-index: 2;
         }
     }
 
