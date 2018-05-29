@@ -1,0 +1,20 @@
+/*
+ * Home template
+ *
+ */
+
+.articles-grid {
+    &__card {
+        margin: { bottom: 1em; }
+    }
+
+    &__button {
+        background-color: $light-indigo;
+        text-align: center;
+        height: auto;
+        width: 100%;
+        color: $white;
+        text-transform: uppercase;
+        font-weight: 200;
+    }
+} 

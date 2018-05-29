@@ -8,26 +8,30 @@
 
         <hr class="hr">
 
-        <div class="home__articles">
+        <div class="articles-grid">
 
             {% for post in site.posts limit: 5  %}
 
-                <article class="article-card">
+                <article class="article-card articles-grid__card">
 
                     <a class="article-card__link" href="{{ post.url }}" aria-title="{{ post.title }}">
                     
                         <div class="article-card__featured" {% if post.featured-img %} style="background-image: url('{{ site.url }}/{{ post.featured-img }}');" {% endif %}></div>
             
-                        <span class="article-card__date">
-                            {{ post.date | date: "%B %-dth %Y" }}
-                        </span>
-                        
-                        <h2 class="h2 article-card__title">
-                            {{ post.title }}
-                        </h2>
+                        <div class="article-card__body">
 
-                        <div class="article-card__excerpt">
-                            {{ post.excerpt | truncatewords:15 }}
+                            <span class="article-card__date">
+                                {{ post.date | date: "%B %-dth %Y" }}
+                            </span>
+                            
+                            <h2 class="h2 article-card__title">
+                                {{ post.title }}
+                            </h2>
+    
+                            <div class="article-card__excerpt">
+                                {{ post.excerpt | truncatewords:15 }}
+                            </div>
+
                         </div>
 
                     </a>
@@ -35,6 +39,10 @@
                 </article>
             
             {% endfor %}
+
+            <div class="button articles-grid__button">
+                View more
+            </div>
 
         </div>
     

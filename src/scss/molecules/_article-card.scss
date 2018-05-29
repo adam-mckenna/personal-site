@@ -5,22 +5,27 @@
 
 .article-card {
     font-family: $muli;
-    padding: 1.5em; 
     background: $light-gray;
 
     &__featured {
         height: 10em;
+        background-image: none;
+        background-color: $light-indigo;
         background-size: cover;
         background-position: center;
-        margin: -1.5em -1.5em 1.25em;
+    }
+
+    &__body {
+        padding: 1.5em; 
     }
 
     &__date {
         @include type-setting(-1);
+        line-height: 1;
         display: block;
         color: $indigo;
         font-weight: 200;
-        margin: { bottom: .666em; }
+        margin: { bottom: .75em; }
     }
 
     &__link {

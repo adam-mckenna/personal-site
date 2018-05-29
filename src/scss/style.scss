@@ -26,7 +26,8 @@
  * Base
  */
 
-@import 'base/reset',
+@import 'base/base',
+        'base/reset',
         'base/typography';
 
 /*
@@ -50,5 +51,10 @@
  * Organisms
  */
 
-@import 'organisms/header',
+@import 'organisms/articles-grid',
+        'organisms/header',
         'organisms/main';       
+
+/* 
+ * Templates
+ */
