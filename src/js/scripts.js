@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", init)
 
 function init() {
-    const toggles = document.getElementsByClassName('button');
+    const toggles = document.getElementsByClassName('nav__toggle');
     for (let i = 0; i < toggles.length; i++)
         toggles[i].addEventListener('click', toggleMenu);
 }
