@@ -4,10 +4,12 @@
  */
 
 .button {
+    display: block;
     font-family: $muli;
     width: 1em;
     height: 1em;
     padding: 1em;
     border: 0;
     background-color: transparent;
+    text-decoration: none;
 }

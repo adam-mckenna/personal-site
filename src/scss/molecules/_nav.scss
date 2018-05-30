@@ -49,6 +49,7 @@
         }
 
         &__close-button { 
+            display: inline-block;
             background-image: url('../img/icons/close.svg');
             margin: { bottom: 1em; }
             font-size: 1em;
