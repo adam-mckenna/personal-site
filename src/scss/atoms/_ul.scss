@@ -6,7 +6,7 @@
 .ul {
     @include type-setting(0);
     font-family: $muli;
-    color: $darker-gray;
+    color: $dark-gray;
     list-style: disc;
     margin: { 
         top: .25em; 

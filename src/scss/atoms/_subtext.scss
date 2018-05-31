@@ -1,0 +1,14 @@
+/*
+ * Subtext atom
+ *
+ */
+
+.subtext {
+    @include type-setting(-1);
+    font-family: $muli;
+    line-height: 1;
+    display: block;
+    color: $indigo;
+    font-weight: 400;
+    margin: { bottom: .8em; }
+}

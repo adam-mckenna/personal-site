@@ -5,7 +5,7 @@
 
 .article-card {
     font-family: $muli;
-    background: $light-gray;
+    background: $lighter-gray;
 
     &__featured {
         height: 10em;
@@ -19,23 +19,14 @@
         padding: 1.5em; 
     }
 
-    &__date {
-        @include type-setting(-1);
-        line-height: 1;
-        display: block;
-        color: $indigo;
-        font-weight: 200;
-        margin: { bottom: .75em; }
-    }
-
     &__title {
-        color: $darker-gray;
+        color: $dark-gray;
         margin: { bottom: .25em; }
     }
 
     &__excerpt {
         @include type-setting(0);
-        color: $dark-gray;
+        color: $gray;
         font-weight: 200;
     }
 }

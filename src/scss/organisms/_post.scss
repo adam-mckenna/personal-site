@@ -1,0 +1,59 @@
+/*
+ * Post organism
+ *
+ */
+
+.post {
+    &__featured {
+        height: 14em;
+        margin: -1.5em -1.5em 1em -1.5em;
+        background-size: contain;
+    }
+
+    &__title {
+        @include type-setting(1);
+        display: inline-block;
+        margin: { top: .25em; bottom: .5em; }
+    }
+
+    &__date {
+        font-size: .85em;
+        margin: { bottom: 1.5em; }
+    }
+
+    a {
+        @extend .link;
+    }
+
+    p {
+        @extend .p;
+    }
+
+    h2 {
+        @extend .h2;
+        @include type-setting(1);
+        display: inline-block;
+        margin: { top: .5em; bottom: .5em; }
+    }
+
+    h3 {
+        @extend .h3;
+        @include type-setting(1);
+        display: inline-block;
+        margin: { top: .5em; bottom: .5em; }
+    }
+
+    ul {
+        @extend .ul;
+    }
+
+    code {
+        @extend .pre;
+    }
+
+    img {
+        vertical-align: middle;
+        margin: 0 -1.5em;
+        max-width: -webkit-fill-available;
+    }
+}

@@ -16,3 +16,7 @@ body {
     position: relative;
     padding: { bottom: 4.2em }; // Compensate for absolute positioned footer
 }
+
+img {
+    max-width: 100%;
+}
