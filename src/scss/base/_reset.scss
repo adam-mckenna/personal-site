@@ -1,7 +1,7 @@
 /*
  * Reset / Normalise file
  * 
- * tinyreset.css v0.1.0 | github.com/shankariyerr/tinyreset
+ * Based upon tinyreset.css v0.1.0 | github.com/shankariyerr/tinyreset
  *
  */
 
@@ -128,4 +128,8 @@ q {
 table {
     border-collapse: collapse;
     border-spacing: 0;
+}
+
+a {
+    text-decoration: none;
 }

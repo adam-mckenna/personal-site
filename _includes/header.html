@@ -14,31 +14,33 @@
 
 <body>
     <header class="header">
-        <h1 class="logo"> 
-            <span class="logo__title">
-                Adam McKenna
-            </span>
-            <span class="logo__subtitle">
-                Full Stack Developer
-            </span>
-        </h1>
+        <a href="{{ site.url }}">
+            <h1 class="logo"> 
+                <span class="logo__title">
+                    Adam McKenna
+                </span>
+                <span class="logo__subtitle">
+                    Full Stack Developer
+                </span>
+            </h1>
+        </a>
 
         <nav class="nav" id="nav" aria-expanded="false">
             <button class="button nav__toggle nav__close-button" aria-label="Close navigation"></button>
 
             <ul>
                 <li class="nav__item">
-                    <a href="#" class="nav__link">
+                    <a href="{{ site.url }}" class="nav__link">
                         Home
                     </a>
                 </li>
                 <li class="nav__item">
-                    <a href="#" class="nav__link">
+                    <a href="{{ site.url }}/articles" class="nav__link">
                         Articles
                     </a>
                 </li>
                 <li class="nav__item">
-                    <a href="#" class="nav__link">
+                    <a href="{{ site.url }}/about" class="nav__link">
                         About
                     </a>
                 </li>

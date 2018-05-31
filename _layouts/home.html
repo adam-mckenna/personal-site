@@ -14,9 +14,13 @@
 
                 <article class="article-card articles-grid__card">
 
-                    <a class="article-card__link" href="{{ post.url }}" aria-title="{{ post.title }}">
+                    <a href="{{ post.url }}" aria-title="{{ post.title }}">
                     
-                        <div class="article-card__featured" {% if post.featured-img %} style="background-image: url('{{ site.url }}/{{ post.featured-img }}');" {% endif %}></div>
+                        <div class="article-card__featured" 
+                             {% if post.featured-img %} 
+                                style="background-image: url('{{ site.url }}/{{ post.featured-img }}');" 
+                             {% endif %}>
+                        </div>
             
                         <div class="article-card__body">
 
@@ -40,7 +44,9 @@
             
             {% endfor %}
 
-            <a href="{{ site.url }}/articles" class="button articles-grid__button">
+            <a href="{{ site.url }}/articles" 
+               aria-label="View all articles"
+               class="button articles-grid__button">
                 View more
             </a>
 
