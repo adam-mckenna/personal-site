@@ -1,0 +1,11 @@
+/*
+ * Paragraph atom
+ *
+ */
+
+.p {
+    @include type-setting(0);
+    font-family: $muli;
+    color: $darker-gray;
+    display: block;
+} 
