@@ -17,4 +17,18 @@
         text-transform: uppercase;
         font-weight: 200;
     }
+
+    @media screen and (min-width: $mobile-width) {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        &__card {
+            width: calc(33.333% - .66em);
+            
+            &:first-of-type {
+                width: calc(66.666% - .33em);
+            }
+        }
+    }
 } 
