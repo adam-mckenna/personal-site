@@ -57,4 +57,24 @@
         margin: 0 -1.5em;
         max-width: -webkit-fill-available;
     }
+    
+    @media screen and (min-width: $mobile-width) {
+        max-width: $tablet-content;
+
+        &__featured {
+            margin: 0 0 1em;
+            height: 20em;
+        }
+
+        &__title {
+            @include type-setting(2);
+            margin: { top: .125em; bottom: .325em; }
+        }
+
+        img {
+            margin: 0;
+            object-fit: cover;
+            width: 100%;
+        }
+    }
 }

@@ -11,7 +11,7 @@ This year, I was fortunate enough to attend the user experience and web developm
 
 The conference ran two tracks which, unfortunately, meant that talks clashed and I was unable to attend a handful of intriguing talks by [Ursula Sarracini][ursula], [Rasmus Lerdorf][rasmus] and [Estelle Weyl][estelle], among others exploring concepts such as accessibility, PHP and legacy codebases.
 
-The day began with a delicious, vegan-friendly breakfast and kicked off an endless stream of 30-minute talks with a keynote presentation by Google engineer [Danno Clifford][danno]: When Fast is Faster Than Fastest wherein he discusses optimising the Chrome V8 JavaScript engine.
+The day began with a delicious, vegan-friendly breakfast and kicked off an endless stream of 30-minute talks with a keynote presentation by Google engineer [Danno Clifford][danno]: _When Fast is Faster Than Fastest_ wherein he discusses optimising the Chrome V8 JavaScript engine.
 
 Interweaved between the talks was more delicious, authentic Austrian food, endless freebies, barista coffee, beers and - to round it all off - a keynote presentation by the renowned [Sara Soueidan][sara] discussing a host of applications for SVGs in her talk:  _the `<svg>` of .svg_.
 

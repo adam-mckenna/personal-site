@@ -4,7 +4,6 @@
  */
 
 .hr {
-    border: 0;
-    border: { top: 0.03125em solid $light-gray; }
+    border: 0.03125em solid $light-gray;
     margin: { bottom: .75em; }
 }
