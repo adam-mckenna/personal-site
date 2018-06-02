@@ -1,0 +1,10 @@
+/*
+ * Blockquotes atom
+ *
+ */
+
+.blockquote {
+    @extend .p;
+    padding-left: 1em;
+    border-left: 1px solid;
+}

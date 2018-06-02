@@ -48,6 +48,10 @@
         @extend .ul;
     }
 
+    blockquote {
+        @extend .blockquote;
+    }
+
     pre,
     code {
         @extend .pre;
@@ -55,6 +59,8 @@
 
     pre {
         padding: .75em 1em 1em;
+        margin-bottom: 1em;
+        overflow: scroll;
     }
 
     pre code {
