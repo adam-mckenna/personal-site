@@ -25,6 +25,8 @@
         width: 2em;
         height: 2em;
         display: block;
+        will-change: filter;
+        transition: filter .3s ease;
 
         &--github {
             background-image: url('../img/icons/github.svg');
@@ -37,5 +39,15 @@
         &--twitter {
             background-image: url('../img/icons/twitter.svg');
         }
+
+        &:hover,
+        &:active,
+        &:focus {
+            filter: brightness(115%);
+        }
+    }
+
+    @media screen and (min-width: $tablet-width) {
+        padding: 1.5em 0;
     }
 }

@@ -33,7 +33,11 @@
                             </h2>
     
                             <div class="article-card__excerpt">
-                                {{ post.excerpt | strip_html | truncatewords:15 }}
+                                {% if forloop.index0 == 0 %}
+                                    {{ post.excerpt | strip_html | truncatewords:20 }}
+                                {% else %}
+                                    {{ post.excerpt | strip_html | truncatewords:12 }}
+                                {% endif %}
                             </div>
 
                         </div>

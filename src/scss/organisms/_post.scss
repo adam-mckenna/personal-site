@@ -30,6 +30,10 @@
         @extend .p;
     }
 
+    b {
+        font-weight: 600;
+    }
+
     h2 {
         @extend .h2;
         @include type-setting(1);

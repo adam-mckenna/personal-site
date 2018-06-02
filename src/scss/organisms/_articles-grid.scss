@@ -16,6 +16,13 @@
         color: $white;
         text-transform: uppercase;
         font-weight: 200;
+        transition: background-color .3s ease;
+
+        &:hover,
+        &:active,
+        &:focus {
+            background-color: $indigo;       
+        }
     }
 
     @media screen and (min-width: $mobile-width) {

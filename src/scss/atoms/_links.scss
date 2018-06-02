@@ -6,4 +6,11 @@
 .link {
     color: $blue;
     text-decoration: underline;
+    transition: color .3s ease;
+
+    &:hover,
+    &:active,
+    &:focus {
+        color: darken($blue, 15%);
+    }
 }

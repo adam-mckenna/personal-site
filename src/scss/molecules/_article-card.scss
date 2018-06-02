@@ -6,6 +6,15 @@
 .article-card {
     font-family: $muli;
     background: $lighter-gray;
+    transition: background .3s ease;
+    
+    &:hover &,
+    &:active &,
+    &:focus & {
+        &__title {
+            text-decoration: underline;
+        }
+    }
 
     &__featured {
         height: 10em;
@@ -13,10 +22,11 @@
         background-color: $light-indigo;
         background-size: cover;
         background-position: center;
+        transition: filter .3s ease;
     }
 
     &__body {
-        padding: 1.5em; 
+        padding: 1.5em 1.25em 2em;
     }
 
     &__title {
@@ -28,5 +38,11 @@
         @include type-setting(0);
         color: $gray;
         font-weight: 200;
+    }
+
+    @media screen and (min-width: $tablet-width) {
+        &__featured {
+            height: 12.5em;
+        }        
     }
 }
