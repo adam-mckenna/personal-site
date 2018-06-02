@@ -48,8 +48,25 @@
         @extend .ul;
     }
 
+    pre,
     code {
         @extend .pre;
+    }
+
+    pre {
+        padding: .75em 1em 1em;
+    }
+
+    pre code {
+        padding: 0;
+    }
+
+    pre code .p {
+        display: inline;
+    }
+
+    figure {
+        margin: { bottom: 1em; }
     }
 
     img {
