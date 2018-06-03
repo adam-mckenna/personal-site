@@ -16,12 +16,15 @@ const todo = require('gulp-todo')
 const browserSync = require('browser-sync').create()
 const livereload = require('gulp-livereload')
 
+// TODO: add general build task
+
 const paths = {
     src: {
         sass: "src/scss/**/*.scss",
         js: "src/js/**/*.js",
         bitmap: "src/img/**/*.{png,jpg,gif}",
-        vector: "src/img/**/*.svg" 
+        vector: "src/img/**/*.svg",
+        ico: "src/img/**/*.ico"
     },
     build: {
         css: "build/css",
@@ -74,6 +77,13 @@ gulp.task('vector', () => {
         .pipe(livereload())
 })
 
+gulp.task('ico', () => {
+    gulp.src(paths.src.ico)
+        .pipe(plumber(plumberErrorHandler))
+        .pipe(gulp.dest(paths.build.img))
+        .pipe(livereload())
+})
+
 gulp.task('watch', () => {
     browserSync.init({
         proxy: "127.0.0.1:4000"
@@ -83,6 +93,7 @@ gulp.task('watch', () => {
     gulp.watch(paths.src.js, ['js'])
     gulp.watch(paths.src.bitmap, ['bitmap'])
     gulp.watch(paths.src.vector, ['vector'])
+    gulp.watch(paths.src.ico, ['ico'])
 })
 
 gulp.task('todo', () => {
