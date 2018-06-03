@@ -30,6 +30,7 @@
         @extend .p;
     }
 
+    strong,
     b {
         font-weight: 600;
     }
@@ -96,6 +97,10 @@
         &__title {
             @include type-setting(2);
             margin: { top: .125em; bottom: .325em; }
+        }
+
+        h2 {
+            font-size: 1.5em;
         }
 
         img {
