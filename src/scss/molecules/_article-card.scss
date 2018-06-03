@@ -30,14 +30,11 @@
     }
 
     &__title {
-        color: $dark-gray;
         margin: { bottom: .25em; }
     }
 
     &__excerpt {
-        @include type-setting(0);
         color: $gray;
-        font-weight: 200;
     }
 
     @media screen and (min-width: $tablet-width) {

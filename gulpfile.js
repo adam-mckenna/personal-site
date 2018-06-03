@@ -15,6 +15,8 @@ const addsrc = require('gulp-add-src')
 const todo = require('gulp-todo')
 const browserSync = require('browser-sync').create()
 const livereload = require('gulp-livereload')
+const replace = require('gulp-replace')
+const fs = require('fs')
 
 // TODO: add general build task
 
@@ -64,7 +66,10 @@ gulp.task('js', () => {
 
 gulp.task('bitmap', () => {
     gulp.src(paths.src.bitmap)
-        .pipe(imagemin())
+        .pipe(imagemin({
+            progressive: true,
+            use: [pngquant()]
+        }))
         .pipe(gulp.dest(paths.build.img))
         .pipe(livereload())
 }) 
@@ -84,6 +89,15 @@ gulp.task('ico', () => {
         .pipe(livereload())
 })
 
+gulp.task('generate-header', () => {
+    return gulp.src('_includes/header.html')
+        .pipe(replace(/<link href="inline.css"[^>]*>/, (s) => {
+            let style = fs.readFileSync('build/css/inline.css', 'utf8')
+            return '<style>\n' + style + '\n</style>'
+        }))
+        .pipe(gulp.dest('_includes/build'))
+})
+
 gulp.task('watch', () => {
     browserSync.init({
         proxy: "127.0.0.1:4000"
@@ -94,6 +108,7 @@ gulp.task('watch', () => {
     gulp.watch(paths.src.bitmap, ['bitmap'])
     gulp.watch(paths.src.vector, ['vector'])
     gulp.watch(paths.src.ico, ['ico'])
+    gulp.watch(paths.src.sass, ['generate-header'])
 })
 
 gulp.task('todo', () => {

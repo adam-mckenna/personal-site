@@ -1,4 +1,4 @@
-{% include header.html %}
+{% include build/header.html %}
 
     <main class="main home">
         
@@ -14,7 +14,7 @@
 
                 <article class="article-card articles-grid__card">
 
-                    <a href="{{ post.url }}" aria-title="{{ post.title }}">
+                    <a href="{{ post.url }}" aria-label="{{ post.title }}">
                     
                         <div class="article-card__featured" 
                              {% if post.featured-img %} 
@@ -32,7 +32,7 @@
                                 {{ post.title }}
                             </h2>
     
-                            <div class="article-card__excerpt">
+                            <div class="article-card__excerpt p p--light">
                                 {% if forloop.index0 == 0 %}
                                     {{ post.excerpt | strip_html | truncatewords:20 }}
                                 {% else %}

@@ -1,0 +1,40 @@
+/* 
+ * Inline Stylesheet
+ *
+ */
+
+/* 
+ * Master styles
+ */ 
+
+@import 'master';
+ 
+/*
+ * Base
+ */
+
+@import 'base/reset',
+        'base/base'; 
+
+/*
+ * Atoms
+ */
+
+@import 'atoms/buttons', 
+        'atoms/logo';
+
+/*
+ * Molecules
+ */
+
+@import 'molecules/article-card',
+        'molecules/nav';
+
+/*
+ * Organisms
+ */
+
+@import 'organisms/articles-grid',   
+        'organisms/footer',
+        'organisms/header',
+        'organisms/main';      
