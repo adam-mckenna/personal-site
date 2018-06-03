@@ -39,7 +39,7 @@ In a traditional site, everything loads at once when the stylesheets, etc. have 
 
 The great thing about this effect is the simplicity of its implementation. To implement this feature, you simply need to serve the CSS applicable to the important elements (e.g. `<header>`, `<nav>`, loading spinner, etc.) in the `<style>` tag at the top of the page, and serve the rest of the apps styles via a stylesheet. The browser automatically provides priority to the head styles.
 
-Read more on loading apps with an Application Shell Architecture [here](shell-architecture).
+Read more on loading apps with an Application Shell Architecture [here][shell-architecture].
 
 Nicole covered plenty more in her talk; including PWA audits, iOS-specific considerations, micro-interactions and a detailed PWA checklist.
 
