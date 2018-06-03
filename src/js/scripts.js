@@ -25,4 +25,3 @@ function toggleMenu() {
     nav.classList.toggle('nav--active')
     nav.setAttribute('aria-expanded', isOpen)
 }
-
