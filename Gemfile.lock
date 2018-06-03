@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/jeremiak/jekyll-offline.git
+  revision: 9d556698875b26196628807d29d5a0d9a7aee680
+  specs:
+    jekyll-offline (0.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -47,6 +53,7 @@ PLATFORMS
 DEPENDENCIES
   jekyll (= 3.4.3)
   jekyll-feed (~> 0.6)
+  jekyll-offline!
   minima (~> 2.0)
   tzinfo-data
 
