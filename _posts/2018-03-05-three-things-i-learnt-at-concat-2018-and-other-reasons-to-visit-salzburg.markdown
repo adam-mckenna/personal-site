@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Three Things I Learnt at .concat() 2018 (and other reasons to visit Salzburg)"
+description: I was fortunate enough to attend the user experience and web development conference .concat() 2018. Here are three cool things I learnt.
 date: 2018-03-05 21:04:19 +0100
 permalink: /articles/:title/
 categories: concat conference ux web development

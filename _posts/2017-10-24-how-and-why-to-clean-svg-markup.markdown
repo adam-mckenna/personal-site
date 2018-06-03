@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "How, and why, to clean SVG markup"
+description: Exploring how to remove unnecessary tags from SVG markup, and why to do so instead of using and SVG compressor such as, say, SVGO.
 date: 2017-10-24 21:04:19 +0100
 permalink: /articles/:title/
 categories: svg markup clean code

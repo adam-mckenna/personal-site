@@ -2,6 +2,7 @@
 layout: about
 title: About
 permalink: /about/
+description: Learn more about Adam McKenna
 ---
 
 I’m Adam McKenna, a full stack developer. I will soon be working at [Namics][namics] in Frankfurt, Germany as a frontend engineer. I have previously worked at a number of companies based in the North East of England, including [Zetec Digital][zetec] (of which I was a co-founder), [Gospelware][gospelware] and [Double Concentrate][dc]. 

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "What is User Experience, Anyway?"
+description: Exploring definitions of user experience in the modern day.
 date: 2018-06-03 00:00:00 +0100
 permalink: /articles/:title/
 categories: user experience usability HCI

@@ -2,6 +2,7 @@
 layout: articles
 title: Articles
 permalink: /articles/
+description: Web and software development articles written by Adam McKenna
 ---
 
 This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)

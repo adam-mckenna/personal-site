@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Writing Baseline Accessible Markup and Styles"
+description: An insight into doing the minimum amount of work to create an accessible product.
 date: 2017-09-04 21:04:19 +0100
 permalink: /articles/:title/
 categories: accessibility a11y markup styles html css
