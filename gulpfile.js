@@ -57,7 +57,7 @@ gulp.task('js', () => {
     gulp.src(paths.src.js)
         .pipe(plumber(plumberErrorHandler))
         .pipe(babel({
-            presets: [paths.babel.es2015]
+            presets: [ paths.babel.es2015 ]
         }))
         .pipe(uglify()) 
         .pipe(concat('scripts.js'))
