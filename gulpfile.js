@@ -26,7 +26,8 @@ const paths = {
         js: "src/js/**/*.js",
         bitmap: "src/img/**/*.{png,jpg,gif}",
         vector: "src/img/**/*.svg",
-        ico: "src/img/**/*.ico"
+        ico: "src/img/**/*.ico",
+        header: "_includes/header.html"
     },
     build: {
         css: "build/css",
@@ -109,6 +110,7 @@ gulp.task('watch', () => {
     gulp.watch(paths.src.vector, ['vector'])
     gulp.watch(paths.src.ico, ['ico'])
     gulp.watch(paths.src.sass, ['generate-header'])
+    gulp.watch(paths.src.header, ['generate-header'])
 })
 
 gulp.task('todo', () => {

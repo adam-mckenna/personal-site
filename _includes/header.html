@@ -57,22 +57,36 @@
             </h1>
         </a>
 
+        <button class="button nav__toggle nav__open-button"
+                aria-label="Open navigation"
+                tabindex="0">
+        </button>
+
         <nav class="nav" id="nav" aria-expanded="false">
-            <button class="button nav__toggle nav__close-button" aria-label="Close navigation"></button>
+            <button class="button nav__toggle nav__close-button" 
+                    aria-label="Close navigation"
+                    tabindex="-1">
+            </button>
 
             <ul>
                 <li class="nav__item">
-                    <a href="{{ site.url }}" class="nav__link">
+                    <a href="{{ site.url }}" 
+                       class="nav__link"
+                       tabindex="-1">
                         Home
                     </a>
                 </li>
                 <li class="nav__item">
-                    <a href="{{ site.url }}/articles" class="nav__link">
+                    <a href="{{ site.url }}/articles"
+                       class="nav__link"
+                       tabindex="-1">
                         Articles
                     </a>
                 </li>
                 <li class="nav__item">
-                    <a href="{{ site.url }}/about" class="nav__link">
+                    <a href="{{ site.url }}/about"
+                       class="nav__link"
+                       tabindex="-1">
                         About
                     </a>
                 </li>
@@ -80,6 +94,4 @@
         </nav>
 
         <div class="overlay" id="nav-overlay"></div>
-
-        <button class="button nav__toggle nav__open-button" aria-label="Open navigation"></button>
     </header>
