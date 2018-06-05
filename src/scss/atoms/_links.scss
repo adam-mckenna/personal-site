@@ -7,10 +7,11 @@
     color: $blue;
     text-decoration: underline;
     transition: color .3s ease;
+    word-wrap: break-word;
 
     &:hover,
     &:active,
     &:focus {
         color: darken($blue, 15%);
     }
-}
+} 
