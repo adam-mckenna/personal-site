@@ -1,9 +1,7 @@
 const gulp = require('gulp')
 const sass = require('gulp-sass')
-const concat = require('gulp-concat')
 const uglify = require('gulp-uglify')
 const babel = require('gulp-babel')
-const uncss = require('gulp-uncss')
 const cssnano = require('gulp-cssnano')
 const base64 = require('gulp-base64')
 const imagemin = require('gulp-imagemin')
@@ -17,6 +15,7 @@ const browserSync = require('browser-sync').create()
 const livereload = require('gulp-livereload')
 const replace = require('gulp-replace')
 const fs = require('fs')
+const rollup = require('gulp-rollup')
 
 // TODO: add general build task
 
@@ -47,20 +46,23 @@ gulp.task('sass', () => {
             includePaths: ['node_modules/susy/sass']
         }))
         .pipe(shorthand())
-        .pipe(base64())
+        .pipe(base64()) 
         .pipe(cssnano())
         .pipe(gulp.dest(paths.build.css))
         .pipe(livereload())
 })
 
 gulp.task('js', () => {
-    gulp.src(paths.src.js)
+    return gulp.src(paths.src.js)       
         .pipe(plumber(plumberErrorHandler))
+        .pipe(rollup({
+            input: 'src/js/scripts.js',
+            output: { format: 'umd' }
+        }))
         .pipe(babel({
             presets: [ paths.babel.es2015 ]
-        }))
+        })) 
         .pipe(uglify()) 
-        .pipe(concat('scripts.js'))
         .pipe(gulp.dest(paths.build.js))
         .pipe(livereload())
 })
@@ -120,7 +122,7 @@ gulp.task('todo', () => {
         .pipe(livereload())
 })
 
-var plumberErrorHandler = {
+const plumberErrorHandler = {
     errorHandler: notify.onError({
         title: 'Gulp',
         message: 'Error: <%= error.message %>'
