@@ -1,4 +1,4 @@
-ErrorDocument 404 /404
+ErrorDocument 404 /errors/error-404.html
 
 RewriteEngine On
 RewriteCond %{HTTPS} !=on
