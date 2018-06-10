@@ -11,13 +11,13 @@ const plumber = require('gulp-plumber')
 const notify = require('gulp-notify')
 const addsrc = require('gulp-add-src')
 const todo = require('gulp-todo')
-const browserSync = require('browser-sync').create()
-const livereload = require('gulp-livereload')
 const replace = require('gulp-replace')
-const fs = require('fs')
 const rollup = require('gulp-rollup')
-
-// TODO: add general build task
+const clean = require('gulp-clean')
+const livereload = require('gulp-livereload')
+const browserSync = require('browser-sync').create()
+const runSequence = require('run-sequence')
+const fs = require('fs')
 
 const paths = {
     src: {
@@ -29,21 +29,33 @@ const paths = {
         header: "_includes/header.html"
     },
     build: {
+        root: "build",
         css: "build/css",
+        inline: "build/css/inline.css",
         js: "build/js",
-        img: "build/img"
+        img: "build/img",
+        header: "_includes/build"
     },
     babel: {
-        es2015: "babel-preset-es2015",
+        es2015: "babel-preset-es2015"
+    },
+    libs: {
+       csspreload: "node_modules/fg-loadcss/dist/cssrelpreload.min.js"
     }
 }
 
+const plumberErrorHandler = {
+    errorHandler: notify.onError({
+        title: 'Gulp',
+        message: 'Error: <%= error.message %>'
+    })
+}
+
 gulp.task('sass', () => {
-    gulp.src(paths.src.sass)
+    return gulp.src(paths.src.sass)
         .pipe(plumber(plumberErrorHandler))
         .pipe(sass({
-            outputStyle: 'compressed',
-            includePaths: ['node_modules/susy/sass']
+            outputStyle: 'compressed'
         }))
         .pipe(shorthand())
         .pipe(base64()) 
@@ -56,7 +68,7 @@ gulp.task('js', () => {
     return gulp.src(paths.src.js)       
         .pipe(plumber(plumberErrorHandler))
         .pipe(rollup({
-            input: 'src/js/scripts.js',
+            input: 'src/js/app.js',
             output: { format: 'umd' }
         }))
         .pipe(babel({
@@ -68,17 +80,16 @@ gulp.task('js', () => {
 })
 
 gulp.task('bitmap', () => {
-    gulp.src(paths.src.bitmap)
+    return gulp.src(paths.src.bitmap)
         .pipe(imagemin({
-            progressive: true,
-            use: [pngquant()]
+            progressive: true
         }))
         .pipe(gulp.dest(paths.build.img))
         .pipe(livereload())
 }) 
 
 gulp.task('vector', () => {
-    gulp.src(paths.src.vector)
+    return gulp.src(paths.src.vector)
         .pipe(plumber(plumberErrorHandler))
         .pipe(svgmin())
         .pipe(gulp.dest(paths.build.img))
@@ -86,26 +97,39 @@ gulp.task('vector', () => {
 })
 
 gulp.task('ico', () => {
-    gulp.src(paths.src.ico)
+    return gulp.src(paths.src.ico)
         .pipe(plumber(plumberErrorHandler))
         .pipe(gulp.dest(paths.build.img))
         .pipe(livereload())
 })
 
 gulp.task('generate-header', () => {
-    return gulp.src('_includes/header.html')
+    return gulp.src(paths.src.header)
         .pipe(replace(/<link href="inline.css"[^>]*>/, (s) => {
-            let style = fs.readFileSync('build/css/inline.css', 'utf8')
+            let style = fs.readFileSync(paths.build.inline, 'utf8')
             return '<style>\n' + style + '\n</style>'
         }))
         .pipe(replace(/<meta id="loadCSS"[^>]*>/, (s) => {
-            let style = fs.readFileSync('node_modules/fg-loadcss/dist/cssrelpreload.min.js', 'utf8')
-            return '<script>\n' + style + '\n</script>'
+            let script = fs.readFileSync(paths.libs.csspreload, 'utf8')
+            return '<script>\n' + script + '\n</script>'
         }))
-        .pipe(gulp.dest('_includes/build'))
+        .pipe(gulp.dest(paths.build.header))
+})
+ 
+gulp.task('clean', () => {
+    return gulp.src(paths.build.root, { read: false })
+        .pipe(clean())
 })
 
-gulp.task('watch', () => {
+gulp.task('todo', () => {
+    return gulp.src(paths.src)
+        .pipe(todo())
+        .pipe(gulp.dest('./'))
+        .pipe(livereload())
+})
+
+
+gulp.task('watch', ['build'], () => {
     browserSync.init({
         proxy: "127.0.0.1:4000"
     })
@@ -119,18 +143,6 @@ gulp.task('watch', () => {
     gulp.watch(paths.src.header, ['generate-header'])
 })
 
-gulp.task('todo', () => {
-    gulp.src(paths.src)
-        .pipe(todo())
-        .pipe(gulp.dest('./'))
-        .pipe(livereload())
+gulp.task('build', () => {
+    runSequence('clean', ['sass', 'js', 'bitmap', 'ico', 'vector'], 'generate-header')
 })
-
-const plumberErrorHandler = {
-    errorHandler: notify.onError({
-        title: 'Gulp',
-        message: 'Error: <%= error.message %>'
-    })
-}
-
-gulp.task('default', ['sass', 'js', 'bitmap', 'vector', 'watch'])
