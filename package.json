@@ -32,5 +32,8 @@
     "path": "^0.12.7",
     "sass-loader": "^7.0.1",
     "sw-precache": "^5.2.1"
+  },
+  "dependencies": {
+    "fg-loadcss": "^2.0.1"
   }
 }

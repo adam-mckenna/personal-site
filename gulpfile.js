@@ -98,6 +98,10 @@ gulp.task('generate-header', () => {
             let style = fs.readFileSync('build/css/inline.css', 'utf8')
             return '<style>\n' + style + '\n</style>'
         }))
+        .pipe(replace(/<meta id="loadCSS"[^>]*>/, (s) => {
+            let style = fs.readFileSync('node_modules/fg-loadcss/dist/cssrelpreload.min.js', 'utf8')
+            return '<script>\n' + style + '\n</script>'
+        }))
         .pipe(gulp.dest('_includes/build'))
 })
 
