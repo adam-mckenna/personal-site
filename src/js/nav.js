@@ -13,12 +13,19 @@ class Nav {
             
         // Setup 'focus trap' checking
         this.element.addEventListener('keyup', () => this.checkTabPress())
+
+        // Adjust nav attributes for appropriate device
+        this.adjustNavAttributes()
+
+        // Adjust nav attributes accordingly after each window resize 
+        window.onresize = () => this.adjustNavAttributes()
     } 
     
     toggleMenu() {
-        const isOpen = this.element.classList.contains('nav--active')
-        this.overlay.classList.toggle('overlay--active')
         this.element.classList.toggle('nav--active')
+        this.overlay.classList.toggle('overlay--active')
+
+        const isOpen = this.element.classList.contains('nav--active')
         this.element.setAttribute('aria-expanded', isOpen)
 
         const links = document.getElementsByClassName('nav__link')
@@ -32,7 +39,7 @@ class Nav {
     checkTabPress(e) {
         const tabElements = this.element.querySelectorAll(['button', 'a'])
         const firstItem = tabElements[0]
-        const lastItem = tabElements[tabElements.length-1]
+        const lastItem = tabElements[tabElements.length - 1]
         e = e || event
     
         if (e.keyCode === 9) {
@@ -40,6 +47,28 @@ class Nav {
                 firstItem.onblur = () => lastItem.focus()
     
             lastItem.onblur = () => firstItem.focus()
+        }
+    }
+
+    adjustNavAttributes() {
+        const mediaQuery = window.matchMedia("(min-width: 48.125em)")
+        const links = document.getElementsByClassName('nav__link')
+
+        if (mediaQuery.matches) {
+            // Remove mobile-specific classes
+            this.element.classList.remove('nav--active')
+            this.overlay.classList.remove('overlay--active')
+
+            // Nav no longer has ability to be toggled, so set expanded to true
+            this.element.setAttribute('aria-expanded', true)
+
+            // Add tabindex to each link in nav
+            Array.from(links).forEach(element => {
+                element.setAttribute('tabindex', 0)
+            })
+        } else {
+            // Nav is automatically hidden at mobile size, so set expanded to false
+            this.element.setAttribute('aria-expanded', false)
         }
     }
 }

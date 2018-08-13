@@ -24,10 +24,9 @@
         position: fixed;
         padding: 1.5em;
         top: 0;
-        right: 0;
+        right: -15em;
         height: 100%;
         width: 12em;
-        transform: translateX(15em);
         transition: .3s ease transform;
         background-color: $dark-gray;
         will-change: transform;
@@ -61,7 +60,7 @@
         }
 
         &--active {
-            transform: translateX(0);
+            transform: translateX(-15em);
             z-index: 2;
         }
     }
