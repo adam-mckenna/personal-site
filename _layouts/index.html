@@ -1,6 +1,6 @@
 {% include build/header.html %}
 
-    <main class="main home">
+    <main class="main">
         
         <h1 class="h1 main__heading">
             Recent Articles
@@ -12,27 +12,27 @@
 
             {% for post in site.posts limit: 5  %}
 
-                <article class="article-card articles-grid__card">
+                <article class="card articles-grid__card">
 
                     <a href="{{ post.url }}" aria-label="{{ post.title }}">
                     
-                        <div class="article-card__featured" 
+                        <div class="card__featured" 
                              {% if post.featured-img %} 
                                 style="background-image: url('{{ site.url }}/{{ post.featured-img }}');" 
                              {% endif %}>
                         </div>
             
-                        <div class="article-card__body">
+                        <div class="card__body">
 
                             <span class="subtext">
                                 {{ post.date | date: "%B %-dth %Y" }}
                             </span>
                             
-                            <h2 class="h2 article-card__title">
+                            <h2 class="h2 card__title">
                                 {{ post.title }}
                             </h2>
     
-                            <div class="article-card__excerpt p p--light">
+                            <div class="card__excerpt p p--light">
                                 {% if forloop.index0 == 0 %}
                                     {{ post.excerpt | strip_html | truncatewords:20 }}
                                 {% else %}
