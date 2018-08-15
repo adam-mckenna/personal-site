@@ -5,10 +5,13 @@
 
 .post {
     &__featured {
-        height: 14em;
         margin: -1.5em -1.5em 1em -1.5em;
         background-size: cover;
         background-position: 50%;
+
+        &__caption {
+            padding: .5em 2em 0;
+        }
     }
 
     &__title {
@@ -22,77 +25,84 @@
         margin: { bottom: 1.5em; }
     }
 
-    a {
-        @extend .link;
+    &__body {
+        a {
+            @extend .link;
+        }
+    
+        p {
+            @extend .p;
+        }
+    
+        strong,
+        b {
+            font-weight: 600;
+        }
+    
+        h2 {
+            @extend .h2;
+        }
+    
+        h3 {
+            @extend .h3;
+        }
+    
+        h2, h3 {
+            @include type-setting(1);
+            display: inline-block;
+            width: 100%;
+            margin: { top: .5em; bottom: .5em; }
+        }
+    
+        ul {
+            @extend .ul;
+        }
+    
+        blockquote {
+            @extend .blockquote;
+        }
+    
+        pre,
+        code {
+            @extend .pre;
+        }
+    
+        pre {
+            padding: .75em 1em 1em;
+            margin-bottom: 1em;
+            overflow: scroll;
+        }
+    
+        pre code {
+            padding: 0;
+        }
+    
+        pre code .p {
+            display: inline;
+        }
+    
+        figure {
+            margin: { bottom: 1em; }
+        }
+    
+        img {
+            vertical-align: middle;
+            margin: 0 -1.5em;
+            width: -webkit-fill-available;
+            max-width: calc(100% + 3em);
+        }
     }
 
-    p {
-        @extend .p;
-    }
-
-    strong,
-    b {
-        font-weight: 600;
-    }
-
-    h2 {
-        @extend .h2;
-    }
-
-    h3 {
-        @extend .h3;
-    }
-
-    h2, h3 {
-        @include type-setting(1);
-        display: inline-block;
-        width: 100%;
-        margin: { top: .5em; bottom: .5em; }
-    }
-
-    ul {
-        @extend .ul;
-    }
-
-    blockquote {
-        @extend .blockquote;
-    }
-
-    pre,
-    code {
-        @extend .pre;
-    }
-
-    pre {
-        padding: .75em 1em 1em;
-        margin-bottom: 1em;
-        overflow: scroll;
-    }
-
-    pre code {
-        padding: 0;
-    }
-
-    pre code .p {
-        display: inline;
-    }
-
-    figure {
-        margin: { bottom: 1em; }
-    }
-
-    img {
-        vertical-align: middle;
-        margin: 0 -1.5em;
-        max-width: -webkit-fill-available;
-    }
     
     @media screen and (min-width: $mobile-width) {
         max-width: $tablet-content;
 
         &__featured {
             margin: 0 0 1em;
-            height: 20em;
+
+            &__caption {
+                padding: .5em 0 0;
+            }
         }
 
         &__title {
@@ -100,14 +110,16 @@
             margin: { top: .125em; bottom: .325em; }
         }
 
-        h2 {
-            font-size: 1.5em;
-        }
-
-        img {
-            margin: 0;
-            object-fit: cover;
-            width: 100%;
+        &__body {
+            h2 {
+                font-size: 1.5em;
+            }
+    
+            img {
+                margin: 0;
+                object-fit: cover;
+                width: 100%;
+            }
         }
     }
 }

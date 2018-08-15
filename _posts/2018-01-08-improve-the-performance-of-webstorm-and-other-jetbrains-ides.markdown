@@ -5,6 +5,8 @@ description: Exploring how to make WebStorm load and perform faster than ever be
 date: 2018-01-08 21:04:19 +0100
 permalink: /articles/:title/
 categories: jetbrains performance webstorm
+featured-img: build/img/posts/improve-the-performance-of-webstorm-and-other-jetbrains-ides/featured.png
+featured-img-caption: JetBrain Logos designed by <a href="http://squirrelmuffins.com" class="link">Kat On</a> and <a href="https://pittankopta.net/" class="link">Amon Keishima</a>.
 ---
 
 In this article, we are going to explore how to make WebStorm load and perform faster than ever before. 

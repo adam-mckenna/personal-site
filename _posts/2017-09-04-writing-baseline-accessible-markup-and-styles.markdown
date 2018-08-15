@@ -5,6 +5,7 @@ description: An insight into doing the minimum amount of work to create an acces
 date: 2017-09-04 21:04:19 +0100
 permalink: /articles/:title/
 categories: accessibility a11y markup styles html css
+featured-img: build/img/posts/writing-baseline-accessible-markup-and-styles/featured.jpg
 ---
 
 Ah, accessibility. You'll find that most developers begin to fall asleep at the sheer mention of the term, like some sort of mysterious magic trick. 

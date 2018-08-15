@@ -5,7 +5,9 @@ description: Exploring how to remove unnecessary tags from SVG markup, and why t
 date: 2017-10-24 21:04:19 +0100
 permalink: /articles/:title/
 categories: svg markup clean code
+featured-img: build/img/posts/how-and-why-to-clean-svg-markup/featured.jpg
 ---
+
 Despite the introduction of the Scalable Vector Graphic (SVG) format almost 20 years ago, the popularity and understanding of working with the SVG format has grown phenomenally in the last few years amongst the web community. The SVG format was brought to the table in 1999 by the World Wide Web Consortium (W3C) and is an XML based vector image format designed specifically for the web.
 
 One of the many beauties of an SVG is that it can be scaled to literally any size, whilst always retaining quality, whereas a bitmap image, such as .jpg, .png or .gif, will pixelate when scaled beyond its natural size. Scalability means that the SVG format is a natural fit for the modern responsive web. An SVG could easily be scaled from mobile, to a standard desktop display, all the way to a 5K display, and everywhere in between and beyond.

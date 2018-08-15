@@ -5,6 +5,7 @@ description: Exploring definitions of user experience in the modern day.
 date: 2018-06-03 00:00:00 +0100
 permalink: /articles/:title/
 categories: user experience usability HCI
+featured-img: build/img/posts/what-is-user-experience-anyway/featured.jpg
 ---
 
 Unless you've been living your life as a member of the Uncontacted Indians of Brazil, deep within the Amazon rainforest, chances are you have encountered the term 'User Experience' - and probably more than you would like.

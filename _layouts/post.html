@@ -4,19 +4,35 @@
         
         {% if page.featured-img %}        
 
-            <div class="post__featured" style="background-image: url('{{ site.url }}/{{ page.featured-img }}');"></div>
+            <figure class="post__featured">
+                <img class="post__featured__img" 
+                     src="{{ site.url }}/{{ page.featured-img }}" 
+                     alt="Trulli">
+
+                {% if page.featured-img-caption %}    
+
+                    <figcaption class="post__featured__caption subtext">
+                        {{ page.featured-img-caption }}
+                    </figcaption>
+
+                {% endif %}
+            </figure>
 
         {% endif %}
 
-        <h1 class="h1 post__title">{{ page.title }}</h1>
+        <section class="post__body">
 
-        <span class="subtext post__date">
-            {{ page.date | date: "%B %-dth %Y" }}
-        </span>
+            <h1 class="h1 post__title">{{ page.title }}</h1>
 
-        <hr class="hr">
-
-        {{ content }}
+            <span class="subtext post__date">
+                {{ page.date | date: "%B %-dth %Y" }}
+            </span>
+    
+            <hr class="hr">
+    
+            {{ content }}
+            
+        </section>
 
     </main>
 
