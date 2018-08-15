@@ -8,38 +8,33 @@
     background: $lighter-gray;
     transition: background .3s ease;
     
-    &:hover &,
-    &:active &,
-    &:focus & {
-        &__title {
-            text-decoration: underline;
-        }
-    }
-
     &__featured {
-        height: 10em;
+        width: 33.333%;
         background-image: none;
         background-color: $light-indigo;
         background-size: cover;
         background-position: center;
         transition: filter .3s ease;
     }
-
+ 
     &__body {
-        padding: 1.25em 1.25em 2em;
+        width: 66.666%;
+        padding: 2em;
     }
 
     &__title {
-        margin: { bottom: .25em; }
+        @include type-setting(1);
+        color: $dark-gray;
+
+        &:hover,
+        &:active,
+        &:focus {
+            text-decoration: underline;
+        }
     }
 
     &__excerpt {
-        color: $gray;
-    }
-
-    @media screen and (min-width: $tablet-width) {
-        &__featured {
-            height: 12.5em;
-        }        
+        color: $gray; 
+        margin: { top: .325em; }
     }
 }

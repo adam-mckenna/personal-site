@@ -5,10 +5,11 @@
 
 .subtext {
     @include type-setting(-1);
+    font-size: .8em;
     font-family: $muli;
     line-height: 1.5;
     display: block;
-    color: $indigo;
+    color: $gray;
     font-weight: 400;
     margin: { bottom: .5em; }
 }

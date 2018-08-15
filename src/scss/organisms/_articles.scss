@@ -1,14 +1,16 @@
 /*
- * Home template
+ * Articles organism
  *
  */
 
-.articles-grid {
+.articles {
     &__card {
+        display: flex;
         margin: { bottom: 1em; }
+        width: 100%;
     }
 
-    &__button {
+    &__button { 
         background-color: $light-indigo;
         text-align: center;
         height: auto;
@@ -22,20 +24,6 @@
         &:active,
         &:focus {
             background-color: $indigo;       
-        }
-    }
-
-    @media screen and (min-width: $mobile-width) {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-
-        &__card {
-            width: calc(33.333% - .66em);
-            
-            &:first-of-type {
-                width: calc(66.666% - .33em);
-            }
         }
     }
 } 
