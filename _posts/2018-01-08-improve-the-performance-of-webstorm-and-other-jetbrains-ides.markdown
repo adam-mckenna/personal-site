@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Improve the performance of WebStorm (and other JetBrains IDEs)"
-description: Exploring how to make WebStorm load and perform faster than ever before. 
+description: Insights in making WebStorm, and other JetBrains IDEs, load and perform faster than ever before. 
 date: 2018-01-08 21:04:19 +0100
 permalink: /articles/:title/
 categories: jetbrains performance webstorm
