@@ -64,7 +64,7 @@
                 tabindex="0">
         </button>
 
-        <nav class="nav" id="nav" aria-expanded="false">
+        <nav class="nav" id="nav" aria-expanded="true">
             <button class="button nav__toggle nav__close-button" 
                     aria-label="Close navigation"
                     tabindex="-1">
@@ -72,7 +72,8 @@
 
             <ul>
                 <li class="nav__item">
-                    <a href="{{ site.url }}" 
+                    <a href="{{ site.url }}"
+                       aria-hidden="true" 
                        class="nav__link"
                        tabindex="-1">
                         Home
