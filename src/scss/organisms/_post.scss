@@ -24,21 +24,21 @@
         font-size: .85em;
         margin: { bottom: 1.5em; }
     }
+    
+    p {
+        @extend .p;
+    }
+
+    a {
+        @extend .link;
+    }
+
+    strong,
+    b {
+        font-weight: 600;
+    }
 
     &__body {
-        a {
-            @extend .link;
-        }
-    
-        p {
-            @extend .p;
-        }
-    
-        strong,
-        b {
-            font-weight: 600;
-        }
-    
         h2 {
             @extend .h2;
         }
