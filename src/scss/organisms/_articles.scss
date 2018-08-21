@@ -6,6 +6,7 @@
 .articles {
     &__card {
         display: flex;
+        flex-wrap: wrap;
         margin: { bottom: 1em; }
         width: 100%;
     }
