@@ -1,9 +1,9 @@
 import { Nav } from './nav.js'
-
+ 
 HTMLDocument.prototype.ready = new Promise(resolve => {
     if (document.readyState != "loading")
         return resolve()
-    else
+    else 
         document.addEventListener("DOMContentLoaded", resolve())
 })
 document.ready.then(init)

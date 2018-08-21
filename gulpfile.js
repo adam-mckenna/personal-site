@@ -9,7 +9,6 @@ const svgmin = require('gulp-svgmin')
 const shorthand = require('gulp-shorthand')
 const plumber = require('gulp-plumber')
 const notify = require('gulp-notify')
-const addsrc = require('gulp-add-src')
 const todo = require('gulp-todo')
 const replace = require('gulp-replace')
 const rollup = require('gulp-rollup')
@@ -56,7 +55,7 @@ gulp.task('sass', () => {
         .pipe(plumber(plumberErrorHandler))
         .pipe(sass({
             outputStyle: 'compressed'
-        }))
+        })) 
         .pipe(shorthand())
         .pipe(base64()) 
         .pipe(cssnano())
@@ -69,12 +68,16 @@ gulp.task('js', () => {
         .pipe(plumber(plumberErrorHandler))
         .pipe(rollup({
             input: 'src/js/app.js',
-            output: { format: 'umd' }
+            output: { 
+                format: 'umd',
+            },
+            plugins: [
+                babel({ 
+                    presets: [ paths.babel.es2015 ] 
+                }),
+                uglify()
+            ]
         }))
-        .pipe(babel({
-            presets: [ paths.babel.es2015 ]
-        })) 
-        .pipe(uglify()) 
         .pipe(gulp.dest(paths.build.js))
         .pipe(livereload())
 })
