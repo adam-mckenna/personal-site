@@ -40,7 +40,7 @@ In a traditional site, everything loads at once when the stylesheets, etc. have 
 
 The great thing about this effect is the simplicity of its implementation. To implement this feature, you simply need to serve the CSS applicable to the important elements (e.g. `<header>`, `<nav>`, loading spinner, etc.) in the `<style>` tag at the top of the page, and serve the rest of the apps styles via a stylesheet. The browser automatically provides priority to the head styles.
 
-Read more on loading apps with an Application Shell Architecture [here][shell-architecture].
+Read more on loading apps with an Application Shell Architecture [here][shell-architecture "Application Shell Architecture documentation"].
 
 Nicole covered plenty more in her talk; including PWA audits, iOS-specific considerations, micro-interactions and a detailed PWA checklist.
 
@@ -104,21 +104,21 @@ The conference was a fantastic opportunity to explore Austria, having never visi
 
 Unlike many cities of the time, Salzburg was spared the knocking-down and rebuilding of buildings, ensuring the city was able to retain its distinctive appearance thanks to a one-hundred-year period of resource and financial neglect from the ruling Habsburg dynasty after the city joined Austria in 1816. 
 
-![a photo that doesn't remotely do Salzburg's beauty justice](https://thepracticaldev.s3.amazonaws.com/i/4xtgawmtisynyw40ngu4.jpg "Photo of Salzburg buildings")
+![A photograph that doesn't remotely do Salzburg's beauty justice](https://thepracticaldev.s3.amazonaws.com/i/4xtgawmtisynyw40ngu4.jpg)
 
 As a result, modern day visitors are able to experience picturesque architecture that is difficult to find in many other places in Europe. And, with Salzburg being surrounded by mountains and various other vantage points, there is ample opportunity to be awed. 
 
-![another photo that doesn't remotely do Salzburg's beauty justice](https://i.imgur.com/YGJ2tOr.jpg "Another photo of Salzburg buildings")
+![Another photograph that doesn't remotely do Salzburg's beauty justice](https://i.imgur.com/YGJ2tOr.jpg)
 
 ### Cuisine and Drinks
 
 Salzburg has quite the offering of delicious cuisine and is also the home place of a number of delicacies, including Paul Furst's [Original Salzburger Mozartkugel](http://www.original-mozartkugel.com/index_e.php) and the _Original Sacher Torte_; the latter of which is available at the [Café Confiserie Sacher](https://www.sacher.com/hotel-wien-2/kulinarik/cafe-sacher-wien/), who never pass on an opportunity to remind you that they are offering not just any Sacher Torte, but the Original Sacher Torte.
 
-![The "Old Austrian" dish](https://i.imgur.com/izTRdHR.jpg "The 'Old Austrian' dish")
+![The "Old Austrian" dish](https://i.imgur.com/izTRdHR.jpg)
 
 In addition to treats, there is no shortage of authentic food, including beef goulash, spinach dumplings and frankfurter sausages. Even the coffee stood out; one common option in Salzburg is the _Melange_: a filter coffee served with milk, whipped cream and, in most cases, a chocolate treat. All the coffee I tried in Salzburg was even served with a small glass of cold water.
 
-![Melange coffee from Cafe Mozart](https://i.imgur.com/bHDqHql.jpg "Melange coffee from Cafe Mozart")
+![Melange coffee from Cafe Mozart](https://i.imgur.com/bHDqHql.jpg)
 
 ### Untersberg Mountain
 
@@ -126,7 +126,7 @@ A short bus journey away from the city centre - in Grödig - is a cable car that
 
 We were able to climb the mountain on a particularly clear day, after a full day of snow, and were able to enjoy the scorching sun, endless snow and unforgettable views of Salzburg, _Watzmann_ mountain and the German province of Bavaria. 
 
-!['Deep' photo of me enjoying the view](https://thepracticaldev.s3.amazonaws.com/i/hmf24mf3qafse6k9w3ho.jpg "'Deep' photo of me enjoying the view")
+!['Deep' photo of me enjoying the view](https://thepracticaldev.s3.amazonaws.com/i/hmf24mf3qafse6k9w3ho.jpg)
 
 Caption: Unintentionally 'deep' photo of me enjoying the view
 

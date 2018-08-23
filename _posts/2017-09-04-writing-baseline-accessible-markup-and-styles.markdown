@@ -303,7 +303,7 @@ If the image cannot be served using the `background-image` CSS property, the ima
 
 Headers are used across websites to indicate page and section titles. There are delivered using the `<h1>` through `<h6>` tags. Here’s an example of a website header hierarchy taken from a random website:
 
-<img src="https://thepracticaldev.s3.amazonaws.com/i/0wxfvhybee46txxdpj2r.png">
+<img src="https://thepracticaldev.s3.amazonaws.com/i/0wxfvhybee46txxdpj2r.png" alt="Gospelware.co.uk website headers">
 
 Source: [gospelware.co.uk](http://gospelware.co.uk) tested via [seowebpageanalyzer.com](http://www.seowebpageanalyzer.com/)
 
@@ -323,9 +323,9 @@ You can combat this by using hidden elements that are only displayed to screen r
 
 ## Empty states
 
-An empty state refers to a small piece of text that indicates to a user that no data is present. Here’s an example from Outlook: 
+An empty state refers to a small piece of text that indicates to a user that no data is present. <span aria-hidden="true">Here’s an example from Outlook:</span>
 
-<img src="https://thepracticaldev.s3.amazonaws.com/i/e59fzu2inf09fdztuj5e.png" style="margin: 0 auto;">
+<img src="https://thepracticaldev.s3.amazonaws.com/i/e59fzu2inf09fdztuj5e.png" alt="" style="margin: 0 auto;">
 
 Empty states should always be provided in situations where data may be present, but none is. This means that screen reader users instantly know that there is no data, rather than waiting under the pretence that the data may load, or presuming an issue has occurred that has prevented the data from displaying.
 

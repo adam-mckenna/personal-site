@@ -12,9 +12,9 @@ Despite the introduction of the Scalable Vector Graphic (SVG) format almost 20 y
 
 One of the many beauties of an SVG is that it can be scaled to literally any size, whilst always retaining quality, whereas a bitmap image, such as .jpg, .png or .gif, will pixelate when scaled beyond its natural size. Scalability means that the SVG format is a natural fit for the modern responsive web. An SVG could easily be scaled from mobile, to a standard desktop display, all the way to a 5K display, and everywhere in between and beyond.
 
-<img src="https://thepracticaldev.s3.amazonaws.com/i/36z13rvrk142v181pz33.png">
+<img src="https://thepracticaldev.s3.amazonaws.com/i/36z13rvrk142v181pz33.png" alt="">
 
-[Image source](https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Bitmap_VS_SVG.svg/2000px-Bitmap_VS_SVG.svg.png)
+[Image source](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics)
 
 The SVG format typically has smaller file sizes than any of its bitmap counterparts, and SVG supports other interesting use cases, including animation. If you’re not yet convinced about the SVG format, I strongly recommend watching <a href="https://www.youtube.com/watch?v=tsGa-gcckwY">this</a> Chris Coyer video or reading Chris’ book; <a href="https://abookapart.com/products/practical-svg">Practical SVG</a>.
 
@@ -165,7 +165,7 @@ All of these `<g>` elements can be removed as they are quite redundant. Since a 
 
 ### The `<svg>` `viewBox` Attribute
 
-The `<svg>` viewBox is a difficult subject, and I would strongly recommend Sara Soueidan’s <a href="https://www.sarasoueidan.com/blog/svg-coordinate-systems/">article</a> if you are new to the attribute.
+The `<svg>` viewBox is a difficult subject, and I would strongly recommend Sara Soueidan’s <a href="https://www.sarasoueidan.com/blog/svg-coordinate-systems/" aria-label="SVG Coordinate Systems article">article</a> if you are new to the attribute.
 
     <svg viewBox=”0 0 39 39″ … >
 
@@ -217,7 +217,7 @@ To quote Sarah Soueidan:
 
 <blockquote>[SVGO] can break the SVG as well as any structure you create in it for animation, for example. I use SVGO sparingly. Ai export is v clean.</blockquote>
 
-You can find an interesting Twitter thread on the topic by Sara Soueidan et al <a href="https://twitter.com/SaraSoueidan/status/922792186839748614">here</a>, which is also the source of the above quote.
+You can find an interesting Twitter thread on the topic by Sara Soueidan et al <a href="https://twitter.com/SaraSoueidan/status/922792186839748614" aria-label="Sara Soueidan's Twitter Thread discussing SVG optimisation">here</a>, which is also the source of the above quote.
 
 ## Conclusion
 
