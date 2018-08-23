@@ -10,3 +10,8 @@
 .footer {
     display: none;
 }
+
+// Displays value of <a> element href attributes
+a[href^="http"]:not([href*="adammckenna.co.uk"])::after {
+    content: " (" attr(href) ")";
+}
