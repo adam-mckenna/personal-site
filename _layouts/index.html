@@ -1,6 +1,6 @@
 {% include build/header.html %}
 
-    <main class="main">
+    <main class="main main--large">
         
         <h1 class="h1 main__heading">
             Recent Articles
@@ -32,7 +32,7 @@
                             </h2>
                         </a>
 
-                        <div class="card__excerpt p p--light">
+                        <div class="card__excerpt p">
                             {{ post.description | strip_html | truncatewords: 25 }}
                         </div>
 

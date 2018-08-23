@@ -12,6 +12,10 @@
         text-transform: uppercase;
     }
 
+    &--large {
+        max-width: $main-width-large;
+    }
+
     @media screen and (min-width: $mobile-width) {
         padding: 2em;
 
