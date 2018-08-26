@@ -20,26 +20,26 @@ const fs = require('fs')
 
 const paths = {
     src: {
-        sass: "src/scss/**/*.scss",
-        js: "src/js/**/*.js",
-        bitmap: "src/img/**/*.{png,jpg,gif}",
-        vector: "src/img/**/*.svg",
-        ico: "src/img/**/*.ico",
-        header: "_includes/header.html"
+        sass: 'src/scss/**/*.scss',
+        js: 'src/js/**/*.js',
+        bitmap: 'src/img/**/*.{png,jpg,gif}',
+        vector: 'src/img/**/*.svg',
+        ico: 'src/img/**/*.ico',
+        header: '_includes/header.html'
     },
     build: {
-        root: "build",
-        css: "build/css",
-        inline: "build/css/inline.css",
-        js: "build/js",
-        img: "build/img",
-        header: "_includes/build"
+        root: 'build',
+        css: 'build/css',
+        inline: 'build/css/inline.css',
+        js: 'build/js',
+        img: 'build/img',
+        header: '_includes/build'
     },
     babel: {
-        es2015: "babel-preset-es2015"
+        es2015: 'babel-preset-es2015'
     },
     libs: {
-       csspreload: "node_modules/fg-loadcss/dist/cssrelpreload.min.js"
+       csspreload: 'node_modules/fg-loadcss/dist/cssrelpreload.min.js'
     }
 }
 
@@ -134,7 +134,7 @@ gulp.task('todo', () => {
 
 gulp.task('watch', ['build'], () => {
     browserSync.init({
-        proxy: "127.0.0.1:4000"
+        proxy: '127.0.0.1:4000'
     })
     livereload.listen()
     gulp.watch(paths.src.sass, ['sass'])
