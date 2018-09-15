@@ -1,6 +1,12 @@
-_site
-.sass-cache
+# Jekyll 
+_site/
+.sass-cache/
+.jekyll-cache/
 .jekyll-metadata
-build
+
+# Build directories
+build/
+_includes/build/
+
+# npm 
 node_modules
-/_includes/build
