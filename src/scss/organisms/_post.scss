@@ -83,6 +83,16 @@
     
         figure {
             margin: { bottom: 1em; }
+
+            figcaption {
+                @extend .p;
+                font-size: .85em;
+                line-height: 1.75;
+                margin: { top: .5rem; }
+                color: $gray;
+                max-width: 100%;
+                text-align: center;
+            }
         }
     
         img {
