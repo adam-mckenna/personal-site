@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Fast as a Veyron: Achieving 100/100 on Google PageSpeed Insights and beyond"
-description: Exploring my experiences in the pursuit and attainment of high website performance; exploring abstract concepts and design decisions, as well as walking through practical examples.
+description: Exploring the pursuit and attainment of high website performance; exploring abstract concepts and design decisions, as well as walking through practical examples.
 date: 2018-09-23 16:00:00 +0100
 permalink: /articles/:title/
 categories: google pagespeed insights web perf optimisation minification
