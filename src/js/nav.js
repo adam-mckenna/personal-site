@@ -29,10 +29,10 @@ class Nav {
         this.element.setAttribute('aria-expanded', isOpen)
 
         const links = document.getElementsByClassName('nav__link')
-        const closeBtn = document.getElementsByClassName('nav__close-button')[0]
+        const closeButton = document.getElementsByClassName('nav__close-button')[0]
         Array.from(links).forEach(element => {
-            element.setAttribute('tabindex', isOpen ? -1 : 0)
-            closeBtn.setAttribute('tabindex', isOpen ? -1 : 0)
+            element.setAttribute('tabindex', isOpen ? 0 : -1)
+            closeButton.setAttribute('tabindex', isOpen ? 0 : -1)
         })
     } 
 
