@@ -5,6 +5,7 @@
   "main": "gulpfile.js",
   "scripts": {
     "start": "concurrently 'bundle exec jekyll serve' 'gulp watch'",
+    "install": "bundle install",
     "build": "bundle exec jekyll build"
   },
   "author": "Adam McKenna",
@@ -38,6 +39,7 @@
     "sw-precache": "^5.2.1"
   },
   "dependencies": {
-    "fg-loadcss": "^2.0.1"
+    "fg-loadcss": "^2.0.1",
+    "natives": "^1.1.6"
   }
 }
