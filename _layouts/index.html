@@ -10,14 +10,14 @@
 
         <div class="articles">
 
-            {% for post in site.posts limit: 5  %}
+            {% for post in site.posts limit: 5 %}
 
                 <article class="card articles__card">
                     
                     <div class="card__featured" 
-                            {% if post.featured-img %} 
-                            style="background-image: url('{{ site.url }}/{{ post.featured-img }}');" 
-                            {% endif %}>
+                        {% if post.featured-img %} 
+                            style="--bg-img: url('{{ site.url }}/{{ post.featured-img }}');" 
+                        {% endif %}>
                     </div>
         
                     <div class="card__body">

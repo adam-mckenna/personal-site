@@ -9,10 +9,7 @@
     transition: background .3s ease;
     
     &__featured {
-        background-image: none;
-        background-color: $light-indigo;
-        background-size: cover;
-        background-position: center;
+        background: var(--bg-img, "none") 50% / cover $light-indigo;
         transition: filter .3s ease;
         min-height: 10em; 
         width: 100%;
