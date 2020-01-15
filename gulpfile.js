@@ -50,8 +50,8 @@ const plumberErrorHandler = {
     })
 }
 
-gulp.task('sass', () => {
-    return gulp.src(paths.src.sass)
+gulp.task('sass', () => 
+    gulp.src(paths.src.sass)
         .pipe(plumber(plumberErrorHandler))
         .pipe(sass({
             outputStyle: 'compressed'
@@ -61,10 +61,10 @@ gulp.task('sass', () => {
         .pipe(cssnano())
         .pipe(gulp.dest(paths.build.css))
         .pipe(livereload())
-})
+)
 
-gulp.task('js', () => {
-    return gulp.src(paths.src.js)       
+gulp.task('js', () => 
+    gulp.src(paths.src.js)       
         .pipe(plumber(plumberErrorHandler))
         .pipe(rollup({
             input: 'src/js/app.js',
@@ -80,56 +80,56 @@ gulp.task('js', () => {
         }))
         .pipe(gulp.dest(paths.build.js))
         .pipe(livereload())
-})
+)
 
-gulp.task('bitmap', () => {
-    return gulp.src(paths.src.bitmap)
+gulp.task('bitmap', () => 
+    gulp.src(paths.src.bitmap)
         .pipe(imagemin({
             progressive: true
         }))
         .pipe(gulp.dest(paths.build.img))
         .pipe(livereload())
-}) 
+) 
 
-gulp.task('vector', () => {
-    return gulp.src(paths.src.vector)
+gulp.task('vector', () => 
+    gulp.src(paths.src.vector)
         .pipe(plumber(plumberErrorHandler))
         .pipe(svgmin())
         .pipe(gulp.dest(paths.build.img))
         .pipe(livereload())
-})
+)
 
-gulp.task('ico', () => {
-    return gulp.src(paths.src.ico)
+gulp.task('ico', () => 
+    gulp.src(paths.src.ico)
         .pipe(plumber(plumberErrorHandler))
         .pipe(gulp.dest(paths.build.img))
         .pipe(livereload())
-})
+)
 
-gulp.task('generate-header', () => {
-    return gulp.src(paths.src.header)
+gulp.task('generate-header', () => 
+    gulp.src(paths.src.header)
         .pipe(replace(/<link href="inline.css"[^>]*>/, (s) => {
             let style = fs.readFileSync(paths.build.inline, 'utf8')
-            return '<style>\n' + style + '\n</style>'
+            return `<style>\n${style}\n</style>`;
         }))
         .pipe(replace(/<meta id="loadCSS"[^>]*>/, (s) => {
             let script = fs.readFileSync(paths.libs.csspreload, 'utf8')
-            return '<script>\n' + script + '\n</script>'
+            return `<script>\n${script}\n</script>`
         }))
         .pipe(gulp.dest(paths.build.header))
-})
+)
  
-gulp.task('clean', () => {
-    return gulp.src(paths.build.root, { read: false })
+gulp.task('clean', () =>  
+    gulp.src(paths.build.root, { read: false })
         .pipe(clean())
-})
+)
 
-gulp.task('todo', () => {
-    return gulp.src(paths.src)
+gulp.task('todo', () => 
+    gulp.src(paths.src)
         .pipe(todo())
         .pipe(gulp.dest('./'))
         .pipe(livereload())
-})
+)
 
 
 gulp.task('watch', ['build'], () => {
