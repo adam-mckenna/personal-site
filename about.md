@@ -5,7 +5,9 @@ permalink: /about/
 description: Learn more about Adam McKenna - Full Stack Web Developer
 ---
 
-I'm Adam McKenna, a full stack developer. I am currently working as a Frontend Developer at the [Money Advice Trust][mat], a non-profit organisation that provides free advice to people across the UK to help manage their debt. I have previously worked at [Namics][namics] in Frankfurt, Germany and several digital agencies based in North East England, including [Zetec Digital][zetec] (of which I was a co-founder), [Gospelware][gospelware] and [Double Concentrate][dc]. 
+I'm Adam McKenna, a full stack developer. I am currently working as a Frontend Developer at the [Money Advice Trust][mat], a non-profit organisation that provides free advice to people across the UK to help manage their debt. 
+
+I have previously worked at [Namics][namics] in Frankfurt, Germany, and several digital agencies based in North East England, including [Zetec Digital][zetec] (as a co-founder), [Gospelware][gospelware] and [Double Concentrate][dc]. 
 
 My interests lay primarily in accessibility, user experience and front-end development and I occasionally write about these subjects, as well as several other topics pertaining to software development and the web.
 
