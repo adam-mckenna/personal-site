@@ -15,7 +15,6 @@ const rollup = require('gulp-rollup')
 const clean = require('gulp-clean')
 const livereload = require('gulp-livereload')
 const browserSync = require('browser-sync').create()
-const runSequence = require('run-sequence')
 const fs = require('fs')
 
 const paths = {
@@ -107,20 +106,20 @@ gulp.task('ico', () =>
 )
 
 gulp.task('generate-header', () => 
-    gulp.src(paths.src.header)
+    gulp.src(paths.src.header, { allowEmpty: true })
         .pipe(replace(/<link href="inline.css"[^>]*>/, (s) => {
-            let style = fs.readFileSync(paths.build.inline, 'utf8')
+            const style = fs.readFileSync(paths.build.inline, 'utf8')
             return `<style>\n${style}\n</style>`;
         }))
         .pipe(replace(/<meta id="loadCSS"[^>]*>/, (s) => {
-            let script = fs.readFileSync(paths.libs.csspreload, 'utf8')
+            const script = fs.readFileSync(paths.libs.csspreload, 'utf8')
             return `<script>\n${script}\n</script>`
         }))
         .pipe(gulp.dest(paths.build.header))
 )
  
 gulp.task('clean', () =>  
-    gulp.src(paths.build.root, { read: false })
+    gulp.src(paths.build.root, {allowEmpty: true, read: false })
         .pipe(clean())
 )
 
@@ -131,8 +130,11 @@ gulp.task('todo', () =>
         .pipe(livereload())
 )
 
+gulp.task('mid-build', gulp.parallel('sass', 'js', 'bitmap', 'ico', 'vector'))
 
-gulp.task('watch', ['build'], () => {
+gulp.task('build', gulp.series('clean', 'mid-build', 'generate-header'));
+
+gulp.task('watch', gulp.series('build', () => {
     browserSync.init({
         proxy: '127.0.0.1:4000'
     })
@@ -144,8 +146,4 @@ gulp.task('watch', ['build'], () => {
     gulp.watch(paths.src.ico, ['ico'])
     gulp.watch(paths.src.sass, ['generate-header'])
     gulp.watch(paths.src.header, ['generate-header'])
-})
-
-gulp.task('build', () => {
-    runSequence('clean', ['sass', 'js', 'bitmap', 'ico', 'vector'], 'generate-header')
-})
+}))
