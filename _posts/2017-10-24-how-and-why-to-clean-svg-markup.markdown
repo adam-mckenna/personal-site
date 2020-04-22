@@ -1,32 +1,46 @@
 ---
 layout: post
 title: "How, and why, to clean SVG markup"
-description: Exploring the removal of unnecessary SVG markup and a comparison with automated SVG minification tools.
+description: How to cleanup SVGs for simpler markup and faster loading. Plus, a comparison with automated SVG minification tools.
 date: 2017-10-24 21:04:19 +0100
 permalink: /articles/:title/
 categories: svg markup clean code
 featured-img: build/img/posts/how-and-why-to-clean-svg-markup/featured.jpg
 ---
 
-Despite the introduction of the Scalable Vector Graphic (SVG) format almost 20 years ago, the popularity and understanding of working with the SVG format has grown phenomenally in the last few years amongst the web community. The SVG format was brought to the table in 1999 by the World Wide Web Consortium (W3C) and is an XML based vector image format designed specifically for the web.
+You wouldn't think that the SVG format has been around for almost 20 years.
 
-One of the many beauties of an SVG is that it can be scaled to literally any size, whilst always retaining quality, whereas a bitmap image, such as .jpg, .png or .gif, will pixelate when scaled beyond its natural size. Scalability means that the SVG format is a natural fit for the modern responsive web. An SVG could easily be scaled from mobile, to a standard desktop display, all the way to a 5K display, and everywhere in between and beyond.
+Over the last few years, the popularity of the format has grown so phenomenally that you'd be forgiven for thinking it was a recent innovation. 
+
+These days, it is common practice to provide your logo, graphics, charts, and the like as an SVG, instead of its pixellated bitmap counterparts. 
+
+So, where did this file format come from? The SVG (_Scaleable Vector Graphic_) format was brought to the table in 1999 by the W3C (_World Wide Web Consortium_).  It's an XML based vector image format designed specifically for the web.
+
+One of the many beauties of vector images, including SVG, is that they can be scaled to any size without a loss of quality. Bitmap images, on the other hand, such as .jpg, .png, and .gif, pixelate when scaled beyond their natural size. 
+
+Scalability makes the SVG format a natural fit for the responsive web. An SVG can easily be scaled for mobile, desktop, all the way to 5K displays, and everywhere in between and beyond.
 
 <img src="https://thepracticaldev.s3.amazonaws.com/i/36z13rvrk142v181pz33.png" alt="">
 
 [Image source](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics)
 
-The SVG format typically has smaller file sizes than any of its bitmap counterparts, and SVG supports other interesting use cases, including animation. If you’re not yet convinced about the SVG format, I strongly recommend watching <a href="https://www.youtube.com/watch?v=tsGa-gcckwY">this</a> Chris Coyer video or reading Chris’ book; <a href="https://abookapart.com/products/practical-svg">Practical SVG</a>.
+An SVG typically has a smaller file size than any of its bitmap counterparts. An SVG also supports several interesting use cases that bitmaps cannot, including animation and interaction with JavaScript. 
 
-The aim of this article is not to convince you to use the SVG format in your web projects, but rather a useful guide to serve those who have already adopted the use of the SVG format in their projects.
+If you’re not yet convinced that SVGs are the future, I strongly recommend watching <a href="https://www.youtube.com/watch?v=tsGa-gcckwY">this</a> Chris Coyer video or reading <a href="https://abookapart.com/products/practical-svg">Chris’ book, Practical SVG</a>.
+
+Convincing readers to use the format is not the purpose of this article. Rather, this article is a guide for those who have already adopted SVGs, and want to squeeze a little more out of the format.
+
+Let's explore how we can cleanup SVG markup, and why we probably should.
 
 ## SVG Anatomy (SVG == Markup)
 
-An SVG behaves similar to standard bitmap when previewed in a browser or image viewer; it simply looks like a standard graphic. However, since SVG is XML-based, you can find readable, familiar, HTML-like markup under the hood. This means that you have readable line-by-line control, regardless of what tool churned out the file.
+When you preview an SVG in a browser or an image viewer, it will, more or less, behave as a bitmap. You can see the image rendered. Of course, the SVG will be sharper, and won't pixelate if you zoom in, but beyond that there is little difference.
 
-Although an SVG could be coded from scratch, most SVGs are produced in some form of graphics editor, such as Adobe Illustrator, Inkscape or Sketch. Generally, these applications export SVGs with additional, unnecessary (sometimes even outdated) elements, attributes and lines within the markup.
+The difference is behind the scenes. SVG is XML-based. Behind every SVG there is readable, HTML-like markup. This means that you have readable line-by-line control, regardless of what tool churned out the file.
 
-Here is some XML from a typical SVG icon created in Adobe Illustrator CC:
+Heck, SVGs could be coded from scratch, and often are. But, most SVGs are produced in a graphics editor, such as Adobe Illustrator, Inkscape or Sketch. These applications often export their SVG markup with superfluous, and sometimes outdated, elements and attributes.
+
+For example, here is the XML from an SVG icon created in _Adobe Illustrator_:
 
     <?xml version="1.0" encoding="iso-8859-1"?>
 
@@ -44,9 +58,11 @@ Here is some XML from a typical SVG icon created in Adobe Illustrator CC:
 
     </svg>
 
-If you’re familiar with HTML, this too will look quite familiar; elements and attributes. And, just like HTML, we can optimise it.
+If you’re familiar with HTML, this will look quite familiar: it's just elements and attributes. 
 
-Let’s take a look at another example. Here is the SVG markup that was generated by Sketch for a simple map marker.
+And, just like HTML, we can optimise it.
+
+Let’s look at another example. This SVG markup is for a map marker icon generated by _Sketch_:
 
     <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 
@@ -90,52 +106,67 @@ Let’s take a look at another example. Here is the SVG markup that was generate
 
     </svg>
  
+Sketch generated this simple icon with 21 lines of markup.
 
-The above SVG markup comes to a total of 21 lines of code. Now, relative to your standard HTML file, this may not seem like a lot, but it’s quite a lot of lines for an simple SVG, typically I work with SVGs of around 4-10 lines.
+Relative to a typical HTML file, that is not many lines. But, for a simple icon, it's much more than necessary. Most icons that I work with are around 4-10 lines.
 
-So, without further ado let’s dig in and see what we can remove.
+Why the bloat? There are several elements and attributes that are redundant and can be removed. Let's have a look at what they are, and why we can remove them.
 
 ## What Markup can we remove?
 
 ### XML Prolog
 
-The first thing that we can remove is the XML prolog.
+The first thing that we can remove is the first line: the XML prolog.
 
     <?xml version=”1.0″ encoding=”UTF-8″ standalone=”no”?>
 
-Most XML documents begin with a prolog; one or more lines of code providing information about the current document and related documents. If the SVG is going to be embedded within an HTML document or another SVG, which it most likely will be, the prolog is redundant and can be swiftly removed. Although leaving the prolog will have no effect to the end user, removing it helps to keep your code clean and readable.
+Most XML documents begin with a prolog. A prolog is one or more lines of code that provide information about the current XML document and related documents. 
+
+If the SVG is going to be embedded within an HTML document or another SVG, which it most likely will be, the prolog is redundant and can be removed. 
+
+Leaving the prolog will have no effect to the user, but removing it helps keep your code clean and reduces file size.
 
 ### The `<svg>` version Attribute
 
-Our `<svg>` tag comes packaged with the version attribute, specifying it is using the latest version of SVG – SVG 1.1.
+The `<svg>` tag comes packaged with the `version` attribute, indicating that it is using the latest version of SVG – _SVG 1.1_.
 
     <svg version=”1.1″ … >
 
-This attribute has <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/version">no influence or bearing</a> on the rendering of the SVG and can be removed. So, let’s strip that out.
+This attribute has <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/version">no influence</a> on the rendering of the SVG and can be removed. 
 
 ### XML Comments
 
-One thing that stands out to me is the large XML comment that was generated by Sketch.
+Did you see Sketch's obtrusive XML comment?
 
     <!– Generator: Sketch 39.1 (31720) – http://www.bohemiancoding.com/sketch →
 
-Although in certain contexts, XML comments can be helpful, or even important, this particular comment is redundant. Other SVG editors may include XML comments when generating SVGs, these comments can also be safely removed.
+Although in certain contexts, XML comments can be helpful, this particular comment is redundant. We don't need to know where the icon came from.
+
+Many other graphic editors include XML comments when generating SVGs, and these comments can also be safely removed.
 
 ### The `<title>` and `<desc>` tags
 
-Next, we’re going to strip out the title and desc. Removal of these elements is dependant on the context in which the SVG is going to be used. The title and desc tags both aid accessibility. The title element may be displayed on hover in certain browsers. The title and desc may also be displayed instead of the graphic in situations where the SVG paths cannot be rendered.
+Next, we’re going to look at the `title` and `desc` elements. 
 
     <title>Hospital</title>
 
     <desc>Created with Sketch.</desc>
 
-If the SVG is a chart or provides some important context to the webpage, keep the title and desc tags. If the SVG is a small icon, perhaps they could be removed. Ultimately, the decision to remove the title and desc tags lies with you, the developer. In this case, however, I have decided to remove the tags.
+**You may not want to remove these elements.** It depends upon the context in which the SVG will be used. 
 
-Note: If you do decide to keep the tags, it’s quite important that you provide better information than the automatically generated content that your SVG editor provides. Provide a rich title and desc that will convey meaning of the SVG to the user.
+The `title` and `desc` tags are helpful for accessibility. The `title` element is displayed on hover in certain browsers. Both elements may also be displayed instead of the graphic if there is a situation where the SVG paths cannot be rendered.
+
+If the SVG provides important context to the page, for example, a graph or chart, then you should keep the `title` and `desc` tags, and change their text content to convey the content of the graphic.
+
+On the other hand, if the SVG does not provide important context, for example, an icon or logo, then the `title` and `desc` tags can be removed. 
+
+As I am working with an icon in this example, I removed the tags.
 
 ### The `<g>` tags
 
-One of the major clutters of the SVG markup is the chain of `<g>` tags that serve as a wrapper for the SVG paths. Most of `<g>` elements have transform attribute, and a few other attributes.
+The major clutter of the SVG markup in my example is the chain of `<g>` tags that serve as a wrapper for the SVG paths. 
+
+Most of the `<g>` elements have a `transform` attribute, among others.
 
     <g id="Maps" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 
@@ -161,29 +192,35 @@ One of the major clutters of the SVG markup is the chain of `<g>` tags that serv
 
     </g>
 
-All of these `<g>` elements can be removed as they are quite redundant. Since a program generated the SVG, it knows very little about optimising code, leaving a trail of endless `<g>` tags in its wake.
+All of these `<g>` elements are redundant and can be removed. 
+
+Why _Sketch_ decides to leave an endless trail of `<g>` tags in its wake is one of life's great mysteries. We may never know.
 
 ### The `<svg>` `viewBox` Attribute
 
-The `<svg>` viewBox is a difficult subject, and I would strongly recommend Sara Soueidan’s <a href="https://www.sarasoueidan.com/blog/svg-coordinate-systems/" aria-label="SVG Coordinate Systems article">article</a> if you are new to the attribute.
+The `<svg>` `viewBox` attribute is a complicated concept. 
+
+I will not delve into it within this article, but I strongly recommend Sara Soueidan’s <a href="https://www.sarasoueidan.com/blog/svg-coordinate-systems/" aria-label="SVG Coordinate Systems article">article</a> if you are unfamiliar with the attribute.
 
     <svg viewBox=”0 0 39 39″ … >
 
-After the removal of the `<g>` tags, the positioning of the SVG elements was slightly off by 3px, I adjusted the starting point of the viewBox to compensate.
+Once the `<g>` tags were removed, the positioning of the SVG elements was slightly off by 3 pixels. I adjusted the starting point of the `viewBox` to compensate.
 
     <svg viewBox=”-3 -3 39 39″ … >
 
-This isn’t ideal, but it’s better than the endless chain of `<g>` tags with random, non-sensical transform attributes. You may not have to make any edits to the viewBox, and if you do it is likely that you will have to use different values.
+This isn’t ideal, but it’s better than the endless chain of `<g>` tags and their non-sensical `transform` attributes. 
+
+Although I did, you may not have to make any edits to the `viewBox` attribute. But, if you do, it is likely that you will have to use different values.
 
 ### IDs
 
-Most of the elements within the SVG markup were provided with some form of ID when the SVG was generated, the `<rect>` element, for instance:
+Most of the SVG elements were generated with an `id` attribute. The `<rect>` element, for example:
 
     <rect id=”Rectangle-57″ … />
 
-Unless you are targeting these elements with JavaScript, these IDs can be stripped out. The only instances where the IDs are important are within the `<defs>` block.
+Unless you need to target these elements with JavaScript, these `id` attributes can be stripped out. The only instances where the `id` attributes are important are within the `<defs>` block.
 
-In our case, ours `<defs>` block looks like this:
+In my example, the `<defs>` block looks like this:
 
     <defs>
 
@@ -191,11 +228,13 @@ In our case, ours `<defs>` block looks like this:
 
     </defs>
 
-The elements within the `<defs>` are not initialised, they are simply declared for future use, you can see this element is used further in the markup:
+The elements within the `<defs>` are not initialised within this block, but rather they are declared for future use. 
+
+You can see the `path-1` element defined within the `<defs>` block is referenced later in the markup via a `<use>` element:
 
     <use xlink:href=”#path-1″ … ></use>
 
-Personally I don’t find the name very descriptive, so I renamed it to border, the markup becomes:
+That means we need to keep the `id` attribute so that the `<use>` element can reference the `<rect>`. But, the `id` value `path-1` is not descriptive. I renamed it to `border`:
 
     <defs>
 
@@ -205,23 +244,29 @@ Personally I don’t find the name very descriptive, so I renamed it to border, 
 
     <use xlink:href=”#border” … ></use>
 
-The new ID is much nicer and much more descriptive.
+The new `id` clearly describes the element.
 
-## Why not use an automated SVG optimiser, like <a href="https://github.com/svg/svgo">SVGO</a> or <a href="https://jakearchibald.github.io/svgomg/">SVGOMG</a>?
+## What's next?
 
-While it's true that there are a host of automated SVG optimisers that will, as the name suggests, automatically optimise the markup of an SVG for you, but this can come at a cost.
+Okay, lets address the elephant in the room...
 
-In some cases, you may find that automated tools can merge all of the SVGs layers, making the SVGs harder to work with in future. 
+### Why not use an automated SVG optimiser, like <a href="https://github.com/svg/svgo">SVGO</a> or <a href="https://jakearchibald.github.io/svgomg/">SVGOMG</a>?
+
+It's true. There are a number of automated tools that will optimise SVG markup for you. 
+
+But, this can come at a cost.
+
+In some cases, automated tools can merge all of the SVGs layers, making the SVG harder to work with in future. 
 
 To quote Sarah Soueidan:
 
 <blockquote>[SVGO] can break the SVG as well as any structure you create in it for animation, for example. I use SVGO sparingly. Ai export is v clean.</blockquote>
 
-You can find an interesting Twitter thread on the topic by Sara Soueidan et al <a href="https://twitter.com/SaraSoueidan/status/922792186839748614" aria-label="Sara Soueidan's Twitter Thread discussing SVG optimisation">here</a>, which is also the source of the above quote.
+Here is an interesting Twitter thread on the topic by Sara Soueidan et al <a href="https://twitter.com/SaraSoueidan/status/922792186839748614" aria-label="Sara Soueidan's Twitter Thread discussing SVG optimisation">here</a>, which is also the source of the above quote.
 
 ## Conclusion
 
-And that’s it. So, our cleaned-up markup is:
+And that’s it. 
 
     <svg width="39px" height="39px" fill="none" viewBox="-3 -3 39 39" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 
@@ -240,20 +285,24 @@ And that’s it. So, our cleaned-up markup is:
         <polygon fill="#FF0000" points="19.7149758 19.5157005..."></polygon>
     </svg>
 
-We’ve managed to reduce the lines of code down to 9; that’s over 50% LOC reduction. That’s pretty impressive.
+We’ve managed to reduce the lines of code down to 9 -- over 50% of the lines of code were removed. That’s pretty impressive.
 
-Now, you’re probably wondering what the point of all this cleanup is. Well, clean SVG markup has a myriad of benefits, including:
+Now, you’re probably wondering what the point of all this cleanup was. 
 
-* Maintainability – Your SVGs are easier to edit and maintain, without ever opening an image editor.
+Well, clean SVG markup has a myriad of benefits, including:
+
+* Maintainability – your SVGs are easier to edit and maintain, without ever opening an image editor.
 
 * Speed – less code means smaller file sizes, smaller file sizes means a faster loading web page.
 
-* Animation – it becomes notably easier to animate SVGs when the markup is clean, optimised and free from redundant tags.
+* Animation – it becomes notably easier to animate SVGs when the markup is optimised and free from redundant tags.
 
-* Accessibility – image editors seldom focus on accessibility when generating markup. Having clean markup makes it easier to create accessible markup.
+* Accessibility – image editors seldom focus on accessibility when generating markup. Having clean markup makes it easier to create accessible graphics.
 
-* JavaScript – understandable markup makes it easier to integrate with your JavaScript. For instance, sensible, unique IDs.
+* JavaScript – understandable markup makes it easier to integrate with JavaScript. For instance, sensible, unique `id` attributes.
 
-Whilst it is true, an SVG minifier, such as SVGOMG, could do most of the leg work for you, but could damage the quality of the SVG. The choice is yours.
+While it is true that an SVG minifier, such as SVGOMG, can do most of the leg work for you, it can also damage the quality of the SVG. 
 
-Of course, it’s all contextual. Figure out if you have time to optimise your SVGs, and if it’s viable to do so, go ahead! If not, that’s fine too. 
+Do you have the time? Are you going to animate the SVGs? It's contextual and the choice is yours.
+
+Thanks for reading.
