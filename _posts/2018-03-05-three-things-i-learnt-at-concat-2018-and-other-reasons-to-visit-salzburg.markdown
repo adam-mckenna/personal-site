@@ -8,7 +8,7 @@ categories: concat conference ux web development
 featured-img: build/img/posts/three-things-i-learnt-at-concat-2018-and-other-reasons-to-visit-salzburg/featured.jpg
 ---
 
-This year, I was fortunate enough to attend [.concat() 2018][concat-2018], a user experience and web development conference hosted in Salzburg, Austria - the home of Mozart and setting of _The Sound of Music_ - at FH Salzburg, the University of Applied Science. The [University of Sunderland](https://www.sunderland.ac.uk/) sponsored my attendence as part of my studies.
+This year, I was fortunate enough to attend [.concat() 2018][concat-2018], a user experience and web development conference hosted in Salzburg, Austria - the home of Mozart and setting of _The Sound of Music_ - at FH Salzburg, the University of Applied Science. The [University of Sunderland](https://www.sunderland.ac.uk/) sponsored my attendance as part of my studies.
 
 The conference ran two tracks which, unfortunately, meant that all of the talks clashed, and I was unable to attend a handful of presentations that had caught my attention, including those by [Ursula Sarracini][ursula], [Rasmus Lerdorf][rasmus], and [Estelle Weyl][estelle], among others exploring concepts such as accessibility, PHP, and maintaining legacy codebases.
 
@@ -38,7 +38,7 @@ One of the main attractions of a PWA, she explained, is the ability to operate o
 
 Another interesting topic that Nicole touched on was _Progressive Loading_ with an [Application Shell Architecture](https://developers.google.com/web/fundamentals/architecture/app-shell) - the concept of loading particular elements before the entire page loads.
 
-With a 'traditional' website, everything is rendered immediately when the stylesheets, and other resources, have been loaded. Whereas, when leverging the Application Shell Architecture, specific elements can be loaded earlier in the rendering process to create an impression of a faster loading website, even though the website hasn't _actually_ loaded faster.
+With a 'traditional' website, everything is rendered immediately when the stylesheets, and other resources, have been loaded. Whereas, when leveraging the Application Shell Architecture, specific elements can be loaded earlier in the rendering process to create an impression of a faster loading website, even though the website hasn't _actually_ loaded faster.
 
 The best part of this effect, in my opinion, is the simplicity of its implementation. All you need to do is serve the applicable CSS via a `<style>` tag at the top of the page. The rest of the website styles can continue to be served via a stylesheet. The browser will automatically prioritise the styles served at the top of the page, rendering them while the stylesheet loads.
 
@@ -76,7 +76,7 @@ From a [Pure Gym application that assumed all users with the title 'Dr' were mal
 
 Products should empower users, not exclude them. So, how do we approach inclusive UX?
 
-You can discover a series of steps to do so in Ivana's powerful talk on YouTube, embeded below.
+You can discover a series of steps to do so in Ivana's powerful talk on YouTube, embedded below.
 
 [![Ivana McConnell - Your Algorithm isn't neutral...](https://img.youtube.com/vi/As5fhzBY5xk/0.jpg)](https://www.youtube.com/watch?v=As5fhzBY5xk)
 
